@@ -1,0 +1,20 @@
+[
+    {
+        "name": "notebook",
+        "color": "black",
+        "price": 100000,
+        "id": 1641949435899
+    },
+    {
+        "name": "notebook",
+        "color": "black",
+        "price": 100000,
+        "id": 1641949845493
+    },
+    {
+        "name": "notebook",
+        "color": "black",
+        "price": 100000,
+        "id": 1641950424986
+    }
+]
