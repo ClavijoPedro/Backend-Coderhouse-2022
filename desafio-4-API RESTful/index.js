@@ -17,7 +17,6 @@ products.get('/', (req, res) => {
 });
 
 products.post('/', (req, res) => {
-    console.log(req.body)
     res.send(api.addProd(req.body));
 });
 
@@ -43,4 +42,5 @@ app.use('/static', express.static('public'));
 
 const server = app.listen(PORT, () => {
     console.log(`Servidor escuchando en el puerto ${server.address().port}`)
-}).on('error', error => console.log(`Error en servidor ${error}`));
+});
+server.on('error', error => console.log(`Error en servidor ${error}`));
