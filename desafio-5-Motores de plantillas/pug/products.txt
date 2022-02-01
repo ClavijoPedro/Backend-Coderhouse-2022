@@ -1,0 +1,20 @@
+[
+    {
+        "name": "manzana",
+        "price": "50",
+        "image": "https://perfumesyfragancias.online/wp-content/uploads/2018/10/poire.jpg",
+        "id": 1
+    },
+    {
+        "name": "manzana",
+        "price": "80",
+        "image": "https://elegifruta.com.ar/onepage/wp-content/uploads/2017/07/manzana_roja.jpg",
+        "id": 2
+    },
+    {
+        "name": "lechuga",
+        "price": "120",
+        "image": "https://http2.mlstatic.com/D_NQ_NP_988566-MLA41826959892_052020-O.webp",
+        "id": 4
+    }
+]

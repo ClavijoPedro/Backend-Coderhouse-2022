@@ -1,0 +1,32 @@
+
+extends index
+
+block prodTable 
+
+  div(id="productos" class="m-auto w-50 text-center")
+      h2(class="mb-5 mt-5")='Vista Productos'
+      if products
+          table(class="table table-striped")
+            thead
+              tr
+                th(scope="col")='Id'
+                th(scope="col")='Nombre'
+                th(scope="col")='Precio'
+                th(scope="col")='Foto'
+            tbody
+              each val in products
+                  tr
+                    td(class="align-middle")=val.id
+                    td(class="align-middle")=val.name
+                    td(class="align-middle")=val.price
+                    td(class="align-middle")
+                      img(class="tblImg" src=val.image alt="prodImg")      
+            tfoot(class="bg-light")
+                tr
+                  td(colspan="4" class="text-center")
+                    a(type="button" class="btn btn-primary" href="./")='Volver'
+      else
+          h5(class="mb-5 bg-light p-5 rounded")='No hay productos'
+          a(type="button" class="btn btn-primary" href="./")='Volver'
+
+

@@ -1,0 +1,16 @@
+<form action="http://localhost:8080/productos" method="post" class="border border-primary border-1 rounded-3 p-5 mt-5 bg-info m-auto">
+    <div class="mb-3 ">
+      <label for="formGroupExampleInput" class="form-label">Nombre Producto</label>
+      <input type="text" name="name" class="form-control" id="formGroupExampleInput" required placeholder="Producto">
+    </div>
+    <div class="mb-3">
+      <label for="formGroupExampleInput2" class="form-label">Precio Producto</label>
+      <input type="text" name="price" class="form-control" id="formGroupExampleInput2" pattern="[0-9]{1,}" required placeholder="Precio ">
+    </div>
+    <div class="mb-3">
+      <label for="formGroupExampleInput2" class="form-label">Imagen Producto</label>
+      <input type="url" name="image" class="form-control" id="formGroupExampleInput2" required placeholder="URL foto">
+    </div>
+  <button type="submit" class="btn btn-primary">Agregar</button>
+  <a type="button" class="btn btn-primary" href="./productos">Ver Productos</a>
+</form>

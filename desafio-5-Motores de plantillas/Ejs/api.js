@@ -1,5 +1,5 @@
 const fs = require('fs');
-let counter = 0;
+let counter = 1;
 
 class Api{
     constructor(){
@@ -33,7 +33,7 @@ class Api{
         const prodList = this.prodList();
         const newProdList = [...prodList, prod];
         try{
-            const saveProd = fs.writeFileSync(this.file, JSON.stringify(newProdList, null, 4));
+            fs.writeFileSync(this.file, JSON.stringify(newProdList, null, 4));
             return console.log(`producto agregado id: ${prod.id}`);
         }
         catch(err){

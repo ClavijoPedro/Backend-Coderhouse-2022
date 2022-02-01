@@ -1,0 +1,17 @@
+{
+  "name": "pugapp",
+  "version": "1.0.0",
+  "description": "desafio 5 motores de plantilla pug",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "pedro clavijo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15",
+    "pug": "^3.0.2"
+  }
+}

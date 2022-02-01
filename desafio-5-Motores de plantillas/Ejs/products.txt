@@ -1,0 +1,8 @@
+[
+    {
+        "name": "manzana",
+        "price": "50",
+        "image": "https://elegifruta.com.ar/onepage/wp-content/uploads/2017/07/manzana_roja.jpg",
+        "id": 10
+    }
+]

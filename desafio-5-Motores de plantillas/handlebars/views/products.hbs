@@ -1,0 +1,35 @@
+
+<div id="productos" class="m-auto w-50 text-center v">
+    <h2 class="mb-5 mt-5">Vista Productos</h2>
+    {{#if products}}
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Foto</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each products }}
+                <tr>
+                    <td class="align-middle">{{id}}</td>
+                    <td class="align-middle">{{name}}</td>
+                    <td class="align-middle">{{price}}</td>
+                    <td class="align-middle"><img class="tblImg" src="{{image}}" alt="prodImg"></td>
+                </tr>
+            {{/each}}      
+          </tbody>
+          <tfoot class="bg-light">
+              <tr>
+                <td colspan="4"><a type="button" class="btn btn-primary" href="./">Volver</a></td>
+              </tr>
+          </tfoot>
+        </table>
+        {{else}}
+            <h5 class="mb-5 bg-light p-5 rounded">No hay productos</h5>
+            <a type="button" class="btn btn-primary" href="./">Volver</a>
+    {{/if}}
+</div>
+
