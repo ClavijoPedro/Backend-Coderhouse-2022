@@ -1,8 +1,7 @@
-let counter = 0;
-
 class MemContainer{
     constructor(){
         this.products = [];
+        this.id = 0;
     }
 
     prodList(){
@@ -17,7 +16,7 @@ class MemContainer{
     }
 
     addProd(obj){
-        const id = counter++;
+        const id = this.id++;
         const product = obj;
         product.id = id;
         this.products = [...this.products, product]

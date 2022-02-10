@@ -1,53 +1,50 @@
 const express = require('express');
 const { Server: HTTPServer } = require('http');
-const { Server: IOServer } = require('socket.io')
-const exphbs = require('express-handlebars');
+const { Server: IOServer } = require('socket.io');
 
+//defino app y servers
 const app = express();
 const httpServer = new HTTPServer(app);
 const io = new IOServer(httpServer);
 
-app.use(express.static('./public')); 
+//traigo los containers
+const FileContainer = require('./containers/FileContainer') 
+const MemContainer = require('./containers/MemContainer');
+const apiFile = new FileContainer();
+const apiMemo = new MemContainer();
+
+//defino middlewares
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static('./public'));
 
-app.engine('hbs', exphbs.engine({
-    extname: 'hbs',
-    defaultLayout: 'index.hbs',
-    layoutsDir: 'views'
-}));
 
-const FileContainer = require('./containers/FileContainer');
-const MemContainer = require('./containers/MemContainer')
-const fileApi = new FileContainer();
-const memApi = new MemContainer();
+//defino endpoints
+io.on('connection', socket => {
+    console.log('usuario conectado!');
 
-// end points
-app.get('/', (req, res) => {
-    res.render('form.hbs')
-})
+    //emito evento con la lista de productos
+    socket.emit('productList', apiMemo.prodList());
 
-io.on('connection', (socket) => {
-    console.log('usuario conectado');
-
-    //traigo la data del container y la emito
-    socket.emit('listaProductos', memApi.prodList())
-
-    //capturo la data del form y la reenvio
-    socket.on('newProduct', prod => { 
-        console.log(memApi.prodList())
-        memApi.addProd(prod)
-        io.sockets.emit('listaProductos', memApi.prodList());
+    //capturo el producto emitido del lado del cliente, guardo y propago
+    socket.on('newProduct', prod => {
+        apiMemo.addProd(prod);
+        io.sockets.emit('productList', apiMemo.prodList());
     });
+
+    //emito evento con la lista de mensajes
+    socket.emit('messages', apiFile.msjList());
+
+    //capturo el mensaje emitido del lado del cliente, guardo y propago
+    socket.on('newMessage', msj => {
+        console.log(msj);
+        apiFile.addMsj(msj);
+        io.sockets.emit('messages', apiFile.msjList());
+        console.log(apiFile.msjList())
+    })
 })
 
-
-// defino view engine y el path del view
-app.set('view engine', 'hbs');
-app.set('views', './views');
-
-
-// server config
-httpServer.listen(3000, () => {
-    console.log(`Server listening at port ${httpServer.address().port}`)
-}).on('error', error => console.log(`Error en servidor ${error}`));
+//configuro server
+httpServer.listen(8080, () => {
+    console.log(`Server listening port ${httpServer.address().port}`)
+}).on('error', (error) => console.log(error));

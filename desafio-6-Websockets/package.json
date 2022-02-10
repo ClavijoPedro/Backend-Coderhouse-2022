@@ -1,17 +1,17 @@
 {
-  "name": "websockets",
+  "name": "desafio-6-desde-0",
   "version": "1.0.0",
-  "description": "desafio 6 websockets",
+  "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "pedro clavijo",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.2",
-    "express-handlebars": "^6.0.2",
     "nodemon": "^2.0.15",
     "socket.io": "^4.4.1"
   }
