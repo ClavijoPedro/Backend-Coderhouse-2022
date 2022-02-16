@@ -1,0 +1,42 @@
+[
+    {
+        "name": "choclo",
+        "description": "verdura",
+        "price": 200,
+        "stock": 10,
+        "image": "https://img2.freepng.es/20180817/evp/kisspng-corn-on-the-cob-organic-food-maize-pastel-de-chocl-5b77536704e414.44316453153454679102.jpg",
+        "date": "16/2/2022 14:18:48",
+        "id": 1,
+        "code": 1645031513046
+    },
+    {
+        "name": "tomate",
+        "description": "verdura",
+        "price": 150,
+        "stock": 10,
+        "image": "https://img1.freepng.es/20171221/hbe/tomato-png-clipart-picture-5a3c47e811b546.8509135715139000080725.jpg",
+        "date": "16/2/2022 14:18:49",
+        "id": 2,
+        "code": 1645031513040
+    },
+    {
+        "name": "lechuga",
+        "description": "verdura",
+        "price": 150,
+        "stock": 10,
+        "image": "https://img2.freepng.es/20190323/xxs/kisspng-caesar-salad-lettuce-sandwich-romaine-lettuce-blt-wok-5c963e1bc591d4.1165234115533501718093.jpg",
+        "date": "16/2/2022 14:18:50",
+        "id": 3,
+        "code": 1645031513050
+    },
+    {
+        "name": "papa",
+        "description": "verdura",
+        "price": 100,
+        "stock": 10,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJXo9SG2WbAxYIP-UW-yBcu8zKXI3BPftBWQ&usqp=CAU",
+        "date": "16/2/2022 14:18:51",
+        "id": 4,
+        "code": 1645031931342
+    }
+]

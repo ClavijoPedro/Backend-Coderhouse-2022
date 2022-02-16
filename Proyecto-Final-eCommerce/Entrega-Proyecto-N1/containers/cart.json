@@ -1,0 +1,28 @@
+[
+   {
+      "id": 1645034807948,
+      "date": "16/2/2022 15:06:47",
+      "products": [
+         {
+            "name": "choclo",
+            "description": "verdura",
+            "price": 200,
+            "stock": 10,
+            "image": "https://img2.freepng.es/20180817/evp/kisspng-corn-on-the-cob-organic-food-maize-pastel-de-chocl-5b77536704e414.44316453153454679102.jpg",
+            "date": "16/2/2022 14:18:48",
+            "id": 1,
+            "code": 1645031513046
+         },
+         {
+            "name": "choclo",
+            "description": "verdura",
+            "price": 200,
+            "stock": 10,
+            "image": "https://img2.freepng.es/20180817/evp/kisspng-corn-on-the-cob-organic-food-maize-pastel-de-chocl-5b77536704e414.44316453153454679102.jpg",
+            "date": "16/2/2022 14:18:48",
+            "id": 3,
+            "code": 1645031513046
+         }
+      ]
+   }
+]
