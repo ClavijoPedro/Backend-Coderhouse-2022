@@ -30,13 +30,23 @@
         "code": 1645031513050
     },
     {
-        "name": "papa",
+        "name": "choclo",
         "description": "verdura",
-        "price": 100,
+        "price": 200,
         "stock": 10,
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJXo9SG2WbAxYIP-UW-yBcu8zKXI3BPftBWQ&usqp=CAU",
+        "image": "https://img2.freepng.es/20180817/evp/kisspng-corn-on-the-cob-organic-food-maize-pastel-de-chocl-5b77536704e414.44316453153454679102.jpg",
         "date": "16/2/2022 14:18:51",
         "id": 4,
         "code": 1645031931342
+    },
+    {
+        "name": "choclo",
+        "description": "verdura",
+        "price": 200,
+        "stock": 10,
+        "image": "https://img2.freepng.es/20180817/evp/kisspng-corn-on-the-cob-organic-food-maize-pastel-de-chocl-5b77536704e414.44316453153454679102.jpg",
+        "date": "22/2/2022 11:24:08",
+        "id": 5,
+        "code": 1645539848734
     }
 ]

@@ -7,6 +7,7 @@ class ItemsContainer {
         this.file = file;
     }
 
+
     listAll(){
         try{
             const itemList =  fs.readFileSync(this.file, 'utf-8')
@@ -16,13 +17,15 @@ class ItemsContainer {
         }
     }
 
-    getById(id){
+
+    getProdById(id){
         const itemList = this.listAll();
         const item = itemList.find( itm => itm.id === Number(id));
         return item
     }
 
-    save(item){
+
+    saveProd(item){
         const itemList = this.listAll();
         const id = itemList.length == 0 ? 1 : itemList[itemList.length - 1].id + 1; //porque el length del array da 1 pero la posicion del item en el array es 0
         const code = Date.now();
@@ -37,13 +40,26 @@ class ItemsContainer {
         }
     }
 
-    updateById(id, itmUpdate){
+
+    updateProdById(id, itmUpdate){
         const itemList = this.listAll();
+        const code = Date.now();
+        const date = new Date().toLocaleString();
         const index = itemList.findIndex( itm => itm.id === id);
         if(index < 0){
             throw new Error(`No se encuentra el producto`);
         }else{
-            const newItem = {...itmUpdate, id:id}; // le agrego el id nuevamente
+            const item = itemList[index];
+            const newItem = {
+                name: itmUpdate.name ? itmUpdate.name : item.name,
+                description: itmUpdate.description ? itmUpdate.description : item.description,
+                price: itmUpdate.price ? itmUpdate.price : item.price,
+                stock: itmUpdate.stock ? itmUpdate.stock : item.stock,
+                image: itmUpdate.image ? itmUpdate.image : item.image,
+                date: date,
+                id: id,
+                code:code
+            }
             itemList[index] = newItem;
             try{
                 fs.writeFileSync(this.file, JSON.stringify(itemList, null, 4));
@@ -53,7 +69,8 @@ class ItemsContainer {
         }
     }
 
-    deleteById(id){
+
+    deleteProdById(id){
         const itemList = this.listAll();
         const newItemList = itemList.filter(itm => itm.id !== id);
         try{
@@ -63,6 +80,7 @@ class ItemsContainer {
         }
     }
 
+    
     deleteAll(){
         const itemList = [];
         try{
