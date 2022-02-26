@@ -54,22 +54,22 @@ messagesForm.addEventListener('submit', (e) => {
 // capturo el evento messages y lo renderizo
 socket.on('messages', msjs => {
     console.log(msjs)
-//    const msj = msjs.map(m => {
-//        return(`   
-//             <div class="uMsj mb-2 rounded text-end bg-light p-2">
-//                 <p class="m-0 msjData">
-//                     <small>
-//                         <b>${m.date}</b>
-//                         <span>${m.email}</span>
-//                     </small>
-//                 </p>
-//                 <p class="m-0 msjText">
-//                     <i>${m.message}</i>
-//                 </p>    
-//             </div>
-//         `)
-//     });
-//     document.getElementById('mensajes').innerHTML = msj
+   const msj = msjs.map(m => {
+       return(`   
+            <div class="uMsj mb-2 rounded text-end bg-light p-2">
+                <p class="m-0 msjData">
+                    <small>
+                        <b>${m.date}</b>
+                        <span>${m.email}</span>
+                    </small>
+                </p>
+                <p class="m-0 msjText">
+                    <i>${m.message}</i>
+                </p>    
+            </div>
+        `)
+    });
+    document.getElementById('mensajes').innerHTML = msj
 });
 
 
