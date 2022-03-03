@@ -1,0 +1,189 @@
+> use ecommerce
+switched to db ecommerce
+>
+> db.mensajes.insert([
+...     {date: new Date(), email:"pepe@gmail.com", message:"hola"},
+...     {date: new Date(), email:"beto@gmail.com", message:"coder"},
+...     {date: new Date(), email:"pablo@gmail.com", message:"esto es"},
+...     {date: new Date(), email:"luis@gmail.com", message:"un desafio"},
+...     {date: new Date(), email:"maria@gmail.com", message:"base de datos"},
+...     {date: new Date(), email:"juan@gmail.com", message:"prueba mongoDB"},
+...     {date: new Date(), email:"sofia@gmail.com", message:"agregando mensajes"},
+...     {date: new Date(), email:"laura@gmail.com", message:"probando terminal"},
+...     {date: new Date(), email:"juli@gmail.com", message:"usando comandos"},
+...     {date: new Date(), email:"sol@gmail.com", message:"insertando documentos"},
+... ])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 10,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+> db.productos.insert([
+...     {name:"remera", price:120, image:"https://http2.mlstatic.com/D_NQ_NP_811163-MLA42449262259_072020-O.webp"},
+...     {name:"remera", price:580, image:"https://http2.mlstatic.com/D_NQ_NP_923036-MLA42405095916_062020-O.webp"},
+...     {name:"pantalon", price:900, image:"https://http2.mlstatic.com/D_NQ_NP_754706-MLA48174872438_112021-O.webp"},
+...     {name:"pantalon", price:1280, image:"https://http2.mlstatic.com/D_NQ_NP_935507-MLA48994025860_022022-O.webp"},
+...     {name:"buzo", price:1700, image:"https://www.ansilta.com/img/articulos/2021/01/buzo_ergo_28_thumb15.jpg"},
+...     {name:"buzo", price:2300, image:"https://http2.mlstatic.com/D_NQ_NP_630709-MLA48575819798_122021-O.webp"},
+...     {name:"zapatilla", price:2860, image:"https://http2.mlstatic.com/D_NQ_NP_753883-MLA41787404474_052020-O.webp"},
+...     {name:"zapatilla", price:3350, image:"https://http2.mlstatic.com/D_NQ_NP_2X_614458-MLA49249945961_032022-F.webp"},
+...     {name:"short", price:4320, image:"https://http2.mlstatic.com/D_NQ_NP_2X_617182-MLA45333377764_032021-F.webp"},
+...     {name:"short", price:4990, image:"https://http2.mlstatic.com/D_NQ_NP_676924-MLA43422094841_092020-O.webp"}
+... ])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 10,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+> db.mensajes.find()
+{ "_id" : ObjectId("621fe6885835a73f72e49848"), "date" : ISODate("2022-03-02T21:50:00.620Z"), "email" : "pepe@gmail.com", "message" : "hola" }
+{ "_id" : ObjectId("621fe6885835a73f72e49849"), "date" : ISODate("2022-03-02T21:50:00.620Z"), "email" : "beto@gmail.com", "message" : "coder" }
+{ "_id" : ObjectId("621fe6885835a73f72e4984a"), "date" : ISODate("2022-03-02T21:50:00.620Z"), "email" : "pablo@gmail.com", "message" : "esto es" }
+{ "_id" : ObjectId("621fe6885835a73f72e4984b"), "date" : ISODate("2022-03-02T21:50:00.620Z"), "email" : "luis@gmail.com", "message" : "un desafio" }
+{ "_id" : ObjectId("621fe6885835a73f72e4984c"), "date" : ISODate("2022-03-02T21:50:00.620Z"), "email" : "maria@gmail.com", "message" : "base de datos" }
+{ "_id" : ObjectId("621fe6885835a73f72e4984d"), "date" : ISODate("2022-03-02T21:50:00.620Z"), "email" : "juan@gmail.com", "message" : "prueba mongoDB" }
+{ "_id" : ObjectId("621fe6885835a73f72e4984e"), "date" : ISODate("2022-03-02T21:50:00.620Z"), "email" : "sofia@gmail.com", "message" : "agregando mensajes" }
+{ "_id" : ObjectId("621fe6885835a73f72e4984f"), "date" : ISODate("2022-03-02T21:50:00.620Z"), "email" : "laura@gmail.com", "message" : "probando terminal" }
+{ "_id" : ObjectId("621fe6885835a73f72e49850"), "date" : ISODate("2022-03-02T21:50:00.620Z"), "email" : "juli@gmail.com", "message" : "usando comandos" }
+{ "_id" : ObjectId("621fe6885835a73f72e49851"), "date" : ISODate("2022-03-02T21:50:00.620Z"), "email" : "sol@gmail.com", "message" : "insertando documentos" }
+>
+>
+> db.productos.find()
+{ "_id" : ObjectId("621ffce19187d5df80fabb90"), "name" : "remera negra", "price" : 120, "image" : "https://http2.mlstatic.com/D_NQ_NP_811163-MLA42449262259_072020-O.webp" }
+{ "_id" : ObjectId("621ffce19187d5df80fabb91"), "name" : "remera azul", "price" : 580, "image" : "https://http2.mlstatic.com/D_NQ_NP_923036-MLA42405095916_062020-O.webp" }
+{ "_id" : ObjectId("621ffce19187d5df80fabb92"), "name" : "pantalon beige", "price" : 900, "image" : "https://http2.mlstatic.com/D_NQ_NP_754706-MLA48174872438_112021-O.webp" }
+{ "_id" : ObjectId("621ffce19187d5df80fabb93"), "name" : "pantalon azul", "price" : 1280, "image" : "https://http2.mlstatic.com/D_NQ_NP_935507-MLA48994025860_022022-O.webp" }
+{ "_id" : ObjectId("621ffce19187d5df80fabb94"), "name" : "buzo polar", "price" : 1700, "image" : "https://www.ansilta.com/img/articulos/2021/01/buzo_ergo_28_thumb15.jpg" }
+{ "_id" : ObjectId("621ffce19187d5df80fabb95"), "name" : "buzo deportivo", "price" : 2300, "image" : "https://http2.mlstatic.com/D_NQ_NP_630709-MLA48575819798_122021-O.webp" }
+{ "_id" : ObjectId("621ffce19187d5df80fabb96"), "name" : "zapatilla deportiva", "price" : 2860, "image" : "https://http2.mlstatic.com/D_NQ_NP_753883-MLA41787404474_052020-O.webp" }
+{ "_id" : ObjectId("621ffce19187d5df80fabb97"), "name" : "zapatilla tennis", "price" : 3350, "image" : "https://http2.mlstatic.com/D_NQ_NP_2X_614458-MLA49249945961_032022-F.webp" }
+{ "_id" : ObjectId("621ffce19187d5df80fabb98"), "name" : "short deportivo", "price" : 4320, "image" : "https://http2.mlstatic.com/D_NQ_NP_2X_617182-MLA45333377764_032021-F.webp" }
+{ "_id" : ObjectId("621ffce19187d5df80fabb99"), "name" : "short joggs", "price" : 4990, "image" : "https://http2.mlstatic.com/D_NQ_NP_676924-MLA43422094841_092020-O.webp" }
+>
+>
+> db.mensajes.estimatedDocumentCount()
+10
+>
+>
+> db.productos.estimatedDocumentCount()
+10
+>
+>
+> db.productos.insertOne({name:"gorra negra", price:2000, image:"https://http2.mlstatic.com/D_NQ_NP_671687-MLA43839820145_102020-O.webp"})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("621ffce19187d5df80fabb9a")
+}
+>
+> db.productos.find()
+{ "_id" : ObjectId("621ffce19187d5df80fabb90"), "name" : "remera negra", "price" : 120, "image" : "https://http2.mlstatic.com/D_NQ_NP_811163-MLA42449262259_072020-O.webp" }
+{ "_id" : ObjectId("621ffce19187d5df80fabb91"), "name" : "remera azul", "price" : 580, "image" : "https://http2.mlstatic.com/D_NQ_NP_923036-MLA42405095916_062020-O.webp" }
+{ "_id" : ObjectId("621ffce19187d5df80fabb92"), "name" : "pantalon beige", "price" : 900, "image" : "https://http2.mlstatic.com/D_NQ_NP_754706-MLA48174872438_112021-O.webp" }
+{ "_id" : ObjectId("621ffce19187d5df80fabb93"), "name" : "pantalon azul", "price" : 1280, "image" : "https://http2.mlstatic.com/D_NQ_NP_935507-MLA48994025860_022022-O.webp" }
+{ "_id" : ObjectId("621ffce19187d5df80fabb94"), "name" : "buzo polar", "price" : 1700, "image" : "https://www.ansilta.com/img/articulos/2021/01/buzo_ergo_28_thumb15.jpg" }
+{ "_id" : ObjectId("621ffce19187d5df80fabb95"), "name" : "buzo deportivo", "price" : 2300, "image" : "https://http2.mlstatic.com/D_NQ_NP_630709-MLA48575819798_122021-O.webp" }
+{ "_id" : ObjectId("621ffce19187d5df80fabb96"), "name" : "zapatilla deportiva", "price" : 2860, "image" : "https://http2.mlstatic.com/D_NQ_NP_753883-MLA41787404474_052020-O.webp" }
+{ "_id" : ObjectId("621ffce19187d5df80fabb97"), "name" : "zapatilla tennis", "price" : 3350, "image" : "https://http2.mlstatic.com/D_NQ_NP_2X_614458-MLA49249945961_032022-F.webp" }
+{ "_id" : ObjectId("621ffce19187d5df80fabb98"), "name" : "short deportivo", "price" : 4320, "image" : "https://http2.mlstatic.com/D_NQ_NP_2X_617182-MLA45333377764_032021-F.webp" }
+{ "_id" : ObjectId("621ffce19187d5df80fabb99"), "name" : "short joggs", "price" : 4990, "image" : "https://http2.mlstatic.com/D_NQ_NP_676924-MLA43422094841_092020-O.webp" }
+{ "_id" : ObjectId("621ffce19187d5df80fabb9a"), "name" : "gorra negra", "price" : 2000, "image" : "https://http2.mlstatic.com/D_NQ_NP_671687-MLA43839820145_102020-O.webp" }
+>
+>
+> db.productos.find({$and: [{price:{$gt:1000}},{price:{$lt:3000}}]})
+{ "_id" : ObjectId("621ffce19187d5df80fabb93"), "name" : "pantalon azul", "price" : 1280, "image" : "https://http2.mlstatic.com/D_NQ_NP_935507-MLA48994025860_022022-O.webp" }
+{ "_id" : ObjectId("621ffce19187d5df80fabb94"), "name" : "buzo polar", "price" : 1700, "image" : "https://www.ansilta.com/img/articulos/2021/01/buzo_ergo_28_thumb15.jpg" }
+{ "_id" : ObjectId("621ffce19187d5df80fabb95"), "name" : "buzo deportivo", "price" : 2300, "image" : "https://http2.mlstatic.com/D_NQ_NP_630709-MLA48575819798_122021-O.webp" }
+{ "_id" : ObjectId("621ffce19187d5df80fabb96"), "name" : "zapatilla deportiva", "price" : 2860, "image" : "https://http2.mlstatic.com/D_NQ_NP_753883-MLA41787404474_052020-O.webp" }
+{ "_id" : ObjectId("621ffce19187d5df80fabb9a"), "name" : "gorra negra", "price" : 2000, "image" : "https://http2.mlstatic.com/D_NQ_NP_671687-MLA43839820145_102020-O.webp" }
+>
+>
+> db.productos.find({price: {$gt: 3000}})
+{ "_id" : ObjectId("621ffce19187d5df80fabb97"), "name" : "zapatilla tennis", "price" : 3350, "image" : "https://http2.mlstatic.com/D_NQ_NP_2X_614458-MLA49249945961_032022-F.webp" }
+{ "_id" : ObjectId("621ffce19187d5df80fabb98"), "name" : "short deportivo", "price" : 4320, "image" : "https://http2.mlstatic.com/D_NQ_NP_2X_617182-MLA45333377764_032021-F.webp" }
+{ "_id" : ObjectId("621ffce19187d5df80fabb99"), "name" : "short joggs", "price" : 4990, "image" : "https://http2.mlstatic.com/D_NQ_NP_676924-MLA43422094841_092020-O.webp" }
+>
+>
+> db.productos.find({}, {name:1, price:1}).sort({price: 1})
+{ "_id" : ObjectId("621ffce19187d5df80fabb90"), "name" : "remera negra", "price" : 120 }
+{ "_id" : ObjectId("621ffce19187d5df80fabb91"), "name" : "remera azul", "price" : 580 }
+{ "_id" : ObjectId("621ffce19187d5df80fabb92"), "name" : "pantalon beige", "price" : 900 }
+{ "_id" : ObjectId("621ffce19187d5df80fabb93"), "name" : "pantalon azul", "price" : 1280 }
+{ "_id" : ObjectId("621ffce19187d5df80fabb94"), "name" : "buzo polar", "price" : 1700 }
+{ "_id" : ObjectId("621ffce19187d5df80fabb9a"), "name" : "gorra negra", "price" : 2000 }
+{ "_id" : ObjectId("621ffce19187d5df80fabb95"), "name" : "buzo deportivo", "price" : 2300 }
+{ "_id" : ObjectId("621ffce19187d5df80fabb96"), "name" : "zapatilla deportiva", "price" : 2860 }
+{ "_id" : ObjectId("621ffce19187d5df80fabb97"), "name" : "zapatilla tennis", "price" : 3350 }
+{ "_id" : ObjectId("621ffce19187d5df80fabb98"), "name" : "short deportivo", "price" : 4320 }
+{ "_id" : ObjectId("621ffce19187d5df80fabb99"), "name" : "short joggs", "price" : 4990 }
+>
+>
+> db.productos.find({}, {name:1, _id:0}).sort({price: 1}).skip(2).limit(1)
+{ "name" : "pantalon beige" }
+>
+>
+> db.productos.update({}, {$set: {stock: 100}}, {multi:true, upsert:true})
+WriteResult({ "nMatched" : 11, "nUpserted" : 0, "nModified" : 11 })
+>
+>
+> db.productos.find()
+{ "_id" : ObjectId("621ffce19187d5df80fabb90"), "name" : "remera negra", "price" : 120, "image" : "https://http2.mlstatic.com/D_NQ_NP_811163-MLA42449262259_072020-O.webp", "stock" : 100 }
+{ "_id" : ObjectId("621ffce19187d5df80fabb91"), "name" : "remera azul", "price" : 580, "image" : "https://http2.mlstatic.com/D_NQ_NP_923036-MLA42405095916_062020-O.webp", "stock" : 100 }
+{ "_id" : ObjectId("621ffce19187d5df80fabb92"), "name" : "pantalon beige", "price" : 900, "image" : "https://http2.mlstatic.com/D_NQ_NP_754706-MLA48174872438_112021-O.webp", "stock" : 100 }
+{ "_id" : ObjectId("621ffce19187d5df80fabb93"), "name" : "pantalon azul", "price" : 1280, "image" : "https://http2.mlstatic.com/D_NQ_NP_935507-MLA48994025860_022022-O.webp", "stock" : 100 }
+{ "_id" : ObjectId("621ffce19187d5df80fabb94"), "name" : "buzo polar", "price" : 1700, "image" : "https://www.ansilta.com/img/articulos/2021/01/buzo_ergo_28_thumb15.jpg", "stock" : 100 }
+{ "_id" : ObjectId("621ffce19187d5df80fabb95"), "name" : "buzo deportivo", "price" : 2300, "image" : "https://http2.mlstatic.com/D_NQ_NP_630709-MLA48575819798_122021-O.webp", "stock" : 100 }
+{ "_id" : ObjectId("621ffce19187d5df80fabb96"), "name" : "zapatilla deportiva", "price" : 2860, "image" : "https://http2.mlstatic.com/D_NQ_NP_753883-MLA41787404474_052020-O.webp", "stock" : 100 }
+{ "_id" : ObjectId("621ffce19187d5df80fabb97"), "name" : "zapatilla tennis", "price" : 3350, "image" : "https://http2.mlstatic.com/D_NQ_NP_2X_614458-MLA49249945961_032022-F.webp", "stock" : 100 }
+{ "_id" : ObjectId("621ffce19187d5df80fabb98"), "name" : "short deportivo", "price" : 4320, "image" : "https://http2.mlstatic.com/D_NQ_NP_2X_617182-MLA45333377764_032021-F.webp", "stock" : 100 }
+{ "_id" : ObjectId("621ffce19187d5df80fabb99"), "name" : "short joggs", "price" : 4990, "image" : "https://http2.mlstatic.com/D_NQ_NP_676924-MLA43422094841_092020-O.webp", "stock" : 100 }
+{ "_id" : ObjectId("621ffce19187d5df80fabb9a"), "name" : "gorra negra", "price" : 2000, "image" : "https://http2.mlstatic.com/D_NQ_NP_671687-MLA43839820145_102020-O.webp", "stock" : 100 }
+>
+>
+> db.productos.update({price: {$gt:4000}}, {$set: {stock: 0}}, {multi:true})
+WriteResult({ "nMatched" : 2, "nUpserted" : 0, "nModified" : 2 })
+>
+>
+> db.productos.find({price:{$gt:4000}}).pretty()
+{
+        "_id" : ObjectId("621ffce19187d5df80fabb98"),
+        "name" : "short deportivo",
+        "price" : 4320,
+        "image" : "https://http2.mlstatic.com/D_NQ_NP_2X_617182-MLA45333377764_032021-F.webp",
+        "stock" : 0
+}
+{
+        "_id" : ObjectId("621ffce19187d5df80fabb99"),
+        "name" : "short joggs",
+        "price" : 4990,
+        "image" : "https://http2.mlstatic.com/D_NQ_NP_676924-MLA43422094841_092020-O.webp",
+        "stock" : 0
+}
+>
+>
+> db.productos.deleteMany({price:{$lt:1000}})
+{ "acknowledged" : true, "deletedCount" : 3 }
+>
+>
+> db.productos.find()
+{ "_id" : ObjectId("621ffce19187d5df80fabb93"), "name" : "pantalon azul", "price" : 1280, "image" : "https://http2.mlstatic.com/D_NQ_NP_935507-MLA48994025860_022022-O.webp", "stock" : 100 }
+{ "_id" : ObjectId("621ffce19187d5df80fabb94"), "name" : "buzo polar", "price" : 1700, "image" : "https://www.ansilta.com/img/articulos/2021/01/buzo_ergo_28_thumb15.jpg", "stock" : 100 }
+{ "_id" : ObjectId("621ffce19187d5df80fabb95"), "name" : "buzo deportivo", "price" : 2300, "image" : "https://http2.mlstatic.com/D_NQ_NP_630709-MLA48575819798_122021-O.webp", "stock" : 100 }
+{ "_id" : ObjectId("621ffce19187d5df80fabb96"), "name" : "zapatilla deportiva", "price" : 2860, "image" : "https://http2.mlstatic.com/D_NQ_NP_753883-MLA41787404474_052020-O.webp", "stock" : 100 }
+{ "_id" : ObjectId("621ffce19187d5df80fabb97"), "name" : "zapatilla tennis", "price" : 3350, "image" : "https://http2.mlstatic.com/D_NQ_NP_2X_614458-MLA49249945961_032022-F.webp", "stock" : 100 }
+{ "_id" : ObjectId("621ffce19187d5df80fabb98"), "name" : "short deportivo", "price" : 4320, "image" : "https://http2.mlstatic.com/D_NQ_NP_2X_617182-MLA45333377764_032021-F.webp", "stock" : 0 }
+{ "_id" : ObjectId("621ffce19187d5df80fabb99"), "name" : "short joggs", "price" : 4990, "image" : "https://http2.mlstatic.com/D_NQ_NP_676924-MLA43422094841_092020-O.webp", "stock" : 0 }
+{ "_id" : ObjectId("621ffce19187d5df80fabb9a"), "name" : "gorra negra", "price" : 2000, "image" : "https://http2.mlstatic.com/D_NQ_NP_671687-MLA43839820145_102020-O.webp", "stock" : 100 }
+>
+
+
+
