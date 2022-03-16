@@ -22,7 +22,9 @@ productos.get('/:id?', (req, res) => { //lista todos los productos disponibles Ã
 productos.post('/', (req, res) => {  //incorporar productos al listado (disponible para administradores) 
     if (admin){
         const product = req.body;
-        res.send(p.saveProd(product))
+        if(Object.keys(product).length !== 0){
+            res.send(p.saveProd(product))
+        }else{ throw new Error('error: los capos de producto no pueden estar vacios')}
     }else{
         res.send(`(error 400) ---- La ruta "api/productos" metodo: ${req.method} es solo para administradores`)
     }
