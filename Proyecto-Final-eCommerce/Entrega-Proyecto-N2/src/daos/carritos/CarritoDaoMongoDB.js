@@ -1,9 +1,10 @@
-const ContenedorMongoDB = require("../../contenedores/ContenedorMongoDB");
+import ContenedorMongoDB from "../../contenedores/ContenedorMongoDB.js";
+import CarritoSchema from './../../models/CarritoModel.js'
+import config from './../../../config.js'; 
 
-class CarritoDaosMongoDB extends ContenedorMongoDB{
-    constructor(){
-        super()
-    }
-}
 
-module.exports = CarritoDaosMongoDB;
+const MONGO_URI = config.mongoDB;
+
+const CarritoDaoMongoDB = new ContenedorMongoDB(MONGO_URI, 'carrito', CarritoSchema);
+
+export default CarritoDaoMongoDB;

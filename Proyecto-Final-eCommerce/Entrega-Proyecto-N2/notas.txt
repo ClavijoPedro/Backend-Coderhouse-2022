@@ -1,7 +1,0 @@
-falta: 
-
-
--hacer rutas
--configurar en Daos instancias de contendeor a carrito y productos
--configurar server
--configurar variables de entorno que asignan las DB en routers 

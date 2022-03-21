@@ -1,10 +1,9 @@
-const ContenedorMongoDB = require("../../contenedores/ContenedorMongoDB");
+import ContenedorMongoDB from "../../contenedores/ContenedorMongoDB.js";
+import ProductoSchema from './../../models/ProductoModel.js'
+import config from './../../../config.js'
 
-class ProductosDaoMongoDB extends ContenedorMongoDB{
-    
-    constructor(){
-        super()
-    }
-}
+const MONGO_URI = config.mongoDB;
 
-module.exports = ProductosDaoMongoDB;
+const ProductosDaoMongoDB = new ContenedorMongoDB(MONGO_URI, 'producto',ProductoSchema)
+
+export default ProductosDaoMongoDB;

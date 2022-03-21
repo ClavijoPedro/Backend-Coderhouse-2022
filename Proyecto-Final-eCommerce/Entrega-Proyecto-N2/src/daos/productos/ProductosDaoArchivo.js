@@ -1,10 +1,8 @@
-const ContenedorArchivo = require('./../../contenedores/ContenedorArchivo');
+import ContenedorArchivo from './../../contenedores/ContenedorArchivo.js';
+import config from './../../../config.js'
 
-class ProductoDaoArchivo extends ContenedorArchivo{
+const fsConfig = config.fileSystemDB.productos;
 
-    constructor(){
-        super('dabase/productos.json') //pasa propiedades del contructor del padre para setearlas en la nueva class
-    }
-}
+const ProductoDaoArchivo = new ContenedorArchivo(fsConfig)
 
-module.exports = ProductoDaoArchivo;
+export default ProductoDaoArchivo;

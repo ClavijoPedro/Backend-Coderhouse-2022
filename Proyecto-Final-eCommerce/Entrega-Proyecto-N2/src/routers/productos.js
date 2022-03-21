@@ -1,37 +1,66 @@
 //traigo router y defino nombre
-const { Router } = require('express');
-const productos = Router();
+import { Router } from 'express';
+import { productos } from './../daos/index.js'
 
-
-//definir containers metodos productos
-
-
-
-//variable acceso administrador
-const admin = true;
+//instancio router
+const productosRouter = Router();
 
 
 //endpoints
-productos.get('/:id?', (req, res) => { //lista todos los productos disponibles ó un producto por su id (disponible para usuarios y administradores)  
-    res.send();
+
+
+
+//lista todos los productos disponibles ó un producto por su id
+productosRouter.get('/:id?', async (req, res) => {   
+    const { id } = req.params;
+    try{
+        const product = await productos.listById(id); 
+        const prodList = await productos.listAll();             
+        res.status(200).send(id ? product : prodList); 
+    }catch(err){ console.log(err) };
 });
 
 
-productos.post('/', (req, res) => {  //incorporar productos al listado (disponible para administradores) 
-    res.send()
+
+//incorporar productos al listado
+productosRouter.post('/', async (req, res) => {   
+    const item = req.body;
+    try{
+        if(Object.keys(item).length > 0){ 
+            const prodId = await productos.save(item);     
+            res.status(200).send(prodId);
+        }else{console.log('ingrese un objeto valido')}; 
+    }catch(err){ console.log(err) };
 });
 
 
-productos.put('/:id', (req, res) => {  //Actualiza un producto por su id (disponible para administradores) 
-    res.send();
+
+//Actualiza un producto por su id 
+productosRouter.put('/:id', async (req, res) => {   
+    const { id } = req.params;
+    const prod = req.body;     
+    try{
+        if(id && Object.keys(prod).length > 0){
+            await productos.updateById(id, prod);
+            res.status(201).send('Producto Actualizado');
+        }
+    }catch(err){ console.log(err) }           
 });
 
 
-productos.delete('/:id', (req, res) => {  //Borra un producto por su id (disponible para administradores)
-    res.send()
-    
+
+//Borra un producto por su id 
+productosRouter.delete('/:id?', async (req, res) => {  
+    const { id } = req.params;            
+    try{
+        if(id){
+            await productos.deleteById(id);
+            res.status(200).send('Producto eliminado');
+        };
+    }catch(err){ console.log(err)}
 });
 
 
-module.exports = productos
+export default productosRouter
 
+ 

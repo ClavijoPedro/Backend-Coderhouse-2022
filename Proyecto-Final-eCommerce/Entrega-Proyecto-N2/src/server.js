@@ -1,26 +1,27 @@
-const express = require('express');
-const {PORT} = require('../config')
+import express from 'express';
+import config from '../config.js';
 
 const app = express();
 
-
 //traigo router
-const productos = require('./router/productos')
-const carrito = require('./router/carrito')
+import productosRouter from './routers/productos.js';
+import carritoRouter from './routers/carrito.js';
 
 
-//middlewares JSON, URL y archivos estaticos siempre antes del middlewares de rutas 
+//middlewares JSON, URL y archivos estaticos  
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(express.static('public'))
 
 
 //middlewares rutas router
-app.use('/api/productos', productos)
-app.use('/api/carrito', carrito)
+app.use('/api/productos', productosRouter)
+app.use('/api/carrito', carritoRouter)
 
 
-//configuro servidor
+//config servidor
+const PORT = config.PORT || process.env.PORT
 const server = app.listen(PORT, ()=>{
     console.log(`Server listening Port ${PORT}`)
-}).on('error', (error) => console.log(error));
+});
+server.on('error', (error) => console.log(error));

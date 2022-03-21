@@ -1,52 +1,64 @@
-// const {db} = require('../dataBases/firebase')
+import config from './../../config.js'
+import { initializeApp, cert } from 'firebase-admin/app'; //traigo los servicios de firebase-admin 
+import { getFirestore } from 'firebase-admin/firestore'; 
+
+
+initializeApp({
+    credential: cert(JSON.parse(config.firebaseDB))
+});
+
+const db = getFirestore();
 
 
 class ContenedorFirebase {
     constructor(collection){
-        this.query = db.collection(collection); //coleccion de la db
+        this.collection = db.collection(collection); 
 
     }
+
 
     async listAll(){
         try{
-            const querySnapshot = await this.query.get();
-            const docs = querySnapshot.docs; //devuelve los docs de la coleccion
-    
-            const items = docs.map((doc) => ({//devuelve array de items 
-                id:doc.id, ...doc.data() 
-            }))
-            return items
+            const data = []
+            const snapshot = await this.collection.get();
+            snapshot.forEach(doc => data.push({ id: doc.id, ...doc.data() }))
+            console.log(data)
+            return data
         }
         catch(error){console.error(error)}
     }
-
+    
 
     async listById (id){
         try{
-            const docRef = this.query.doc(`${id}`);
-            const getItem = await docRef.get();
-            const item = getItem.data();
-            console.log(item)
-            return item;
-        }
-        catch(error){console.error(error)}
+            const item = await this.collection.doc(id).get()
+            if(item.exists){
+                return item.data();
+            }else{ console.log('Error: el item no existe') }
+        } 
+        catch(error){console.error(error)} 
     }
 
 
     async updateById(id, itmUpdate){
         try{
-            const docRef = this.query.doc(`${id}`);
-            const item = await docRef.update(itmUpdate);
-            console.log(item)
+            const item = await this.collection.doc(id).get()
+            if(item.exists){
+                await this.collection.doc(id).update(itmUpdate);
+            }else{ console.log('Error: el item no existe') }
         }
         catch(error){console.error(error)}
     }
 
 
-    async save(item){
+    async save(itm){
+        const timestamp = new Date().toLocaleString()
+        const code = Date.now()
         try{
-            const docRef =  this.query.doc();
-            await docRef.set(item);
+            const docRef =  await this.collection.doc();
+            const item = {...itm, timestamp:timestamp, code:code, id:docRef.id};
+            const saveDoc = await docRef.set(item);
+            return saveDoc.id
         }
         catch(error){console.error(error)}
     }
@@ -54,13 +66,13 @@ class ContenedorFirebase {
 
     async deleteById(id){
         try{
-            const docRef = this.query.doc(`${id}`);
+            const docRef = await this.collection.doc(id);
             const itemDelete = await docRef.delete();
-            console.log('item eliminado \n', itemDelete);
+            console.log('documento eliminado \n', itemDelete);
         }
         catch(error){console.error(error)}
     }
 }
 
 
-module.exports = ContenedorFirebase;
+export default ContenedorFirebase;

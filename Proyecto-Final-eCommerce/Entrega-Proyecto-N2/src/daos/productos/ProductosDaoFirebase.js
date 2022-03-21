@@ -1,10 +1,5 @@
-const ContenedorFirebase = require("../../contenedores/ContenedorFirebase");
+import ContenedorFirebase from "../../contenedores/ContenedorFirebase.js";
 
-class ProductosDaoFirebase extends ContenedorFirebase{
+const ProductosDaosFirebase = new ContenedorFirebase('productos');
 
-    constructor(){
-        super()
-    }
-}
-
-module.exports = ProductosDaoFirebase;
+export default ProductosDaosFirebase
