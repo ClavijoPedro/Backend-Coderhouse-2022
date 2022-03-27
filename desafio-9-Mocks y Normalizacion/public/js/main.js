@@ -11,7 +11,7 @@ messagesForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const userMessage = {
         author: {
-            id:document.getElementById('userMail').value,
+            email:document.getElementById('userMail').value,
             nombre:document.getElementById('userName').value,
             apellido:document.getElementById('userLastName').value,
             edad:document.getElementById('userAge').value,
@@ -26,22 +26,40 @@ messagesForm.addEventListener('submit', (e) => {
     messagesForm.reset();
 })
 
+
+//creo esquemas
+const author = new normalizr.schema.Entity('author', {}, { idAttribute: 'email' });
+const text = new normalizr.schema.Entity('text', { author: author },{ idAttribute: 'id' });
+const chat = new normalizr.schema.Entity('chat', {
+  authors: [author],
+  messages: [text]
+}, { idAttribute: 'id' });
+
+
 // capturo el evento messages y lo renderizo
 socket.on('messages', msjs => {
-    console.log(msjs)
-   const msj = msjs.map(m => {
+
+    //desnomarlizo 
+    const denormalizeChat = normalizr.denormalize(msjs.result, chat, msjs.entities);
+    let originalData = JSON.stringify(denormalizeChat).length; 
+    let normalizedData = JSON.stringify(msjs.entities).length;
+    let compression = ((normalizedData * 100) / originalData).toFixed(2);
+    document.getElementById('compression').innerHTML = `Compresión de mensajes: ${compression}% `
+
+    //creo el html de mensaje
+    const msj = denormalizeChat.messages.map(m => {
        return(`   
             <div class="uMsj mb-2 rounded text-end bg-light p-2">
                 <p class="m-0 msjData">
                     <small>
-                        <b>${m.createdAt}</b>
-                        <span>${m.author.id}</span>
+                        <b>${m.date}</b>
+                        <span>${m.author.email}</span>
                     </small>
                 </p>
                 <p class="m-0 msjText">
                     <i>${m.text}</i>
                 </p> 
-                <img href="${m.author.avatar}" alt="avatar"></img>   
+                <img class="avatar" src="${m.author.avatar}" alt="avatar"></img>   
             </div>
         `)
     });

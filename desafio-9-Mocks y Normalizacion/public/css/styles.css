@@ -53,3 +53,23 @@ body{
 .input{
     margin-bottom: 10px;
 }
+
+.avatar{
+    border-radius: 100%;
+    width: 40px;
+    z-index: 1000;
+    position:absolute;
+    right:220px;
+    bottom:10px
+}
+
+.uMsj{
+    position:relative
+}
+
+#compression{
+    text-align: center;
+    font-size: 0.8rem;
+    margin-bottom: 1px;
+    font-weight: 500;
+}

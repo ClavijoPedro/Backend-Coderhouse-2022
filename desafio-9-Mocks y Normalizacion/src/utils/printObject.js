@@ -1,7 +1,7 @@
 import util from 'util';
 
-const print = (objeto) => {
-    console.log(util.inspect(objeto, false, 12, true));
+const printObject = (objeto) => {
+    console.log(util.inspect(objeto, false, 2, true));
 };
 
-export default print
+export default printObject

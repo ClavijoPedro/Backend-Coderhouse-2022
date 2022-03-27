@@ -1,12 +1,13 @@
 import express from 'express';
 import { createServer as HTTPServer} from 'http';
 import { Server as IOServer } from 'socket.io';
-// import DataBase from './containers/DataBase.js';
-import {createData} from './src/utils/fakeProducts.js'
+import { createData } from './utils/fakeProducts.js'
+import { normalizeChat } from './utils/normalizeChat.js';
+
 
 //traigo motor de plantillas 
 import handlebars from 'express-handlebars'
-import MensajesDao from './src/daos/MensajesDaoMongoDB.js';
+import MensajesDaoMongoDB from './daos/MensajesDaoMongoDB.js';
 
 
 //defino app y servers
@@ -15,9 +16,8 @@ const httpServer = new HTTPServer(app);
 const io = new IOServer(httpServer);
 
 
-//instancio containers
-const mensajes = MensajesDao;
-
+//instancio containers de chat
+const mensajesDao = MensajesDaoMongoDB;
 
 
 //defino middlewares
@@ -34,6 +34,8 @@ app.engine('hbs', handlebars.engine({
 }))
 
 
+
+//ruta productos
 app.get('/api/productos-test',   async (req, res) => {
     try{
         const productos = await createData(5)
@@ -47,27 +49,19 @@ app.get('/api/productos-test',   async (req, res) => {
 io.on('connection', async socket => {
     console.log('usuario conectado!');
 
-
-    //traigo la data de forma asincrona 
-    const messages = await mensajes.listAll();
-
-
-    // si hay data la emito (sin el if se genera conflicto, el socket no espera la promise 
-    //que devuelve la funcion de Knex dentro de listData())
-    //---------------------------chat----------------------------------------------------------
+    //traigo data de chat, normalizo y saco compresion
+    const messages = await mensajesDao.listAll()
     
     if(messages){
         try{
+            // emito evento con la lista de mensajes normalizada
+            socket.emit('messages', normalizeChat(messages));
             
-            console.log(messages)
-            // emito evento con la lista de mensajes
-            socket.emit('messages', messages);
-            
-            // // capturo el mensaje emitido del lado del cliente, guardo y propago
+            // capturo el mensaje emitido del lado del cliente, guardo y propago
             socket.on('newMessage', async msj => {
-                messages.push(msj) 
-                await mensajes.save(msj);
-                io.sockets.emit('messages', messages);
+                await mensajesDao.save(msj);
+                const newMessages = await mensajesDao.listAll()
+                io.sockets.emit('messages', normalizeChat(newMessages));
             });
 
         }catch(err){console.log(err)}
@@ -84,5 +78,4 @@ app.set('views', 'public/templates');
 //configuro server
 const PORT = 3000;
 httpServer.listen(PORT, () => {
-    console.log(`Server listening port ${httpServer.address().port}`)
 }).on('error', (error) => console.log(error));

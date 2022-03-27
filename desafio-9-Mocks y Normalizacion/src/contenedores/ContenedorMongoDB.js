@@ -11,7 +11,7 @@ class ContenedorMongoDB {
     async connectDB(){
         try{
             await mongoose.connect(this.connection)
-            .then(() => console.log('MongoDB connected'))
+            // .then(() => console.log('MongoDB connected'))
         }catch(error){ console.log(error)}
     }
 
@@ -19,8 +19,8 @@ class ContenedorMongoDB {
     async disconnect(){    
         try{
             await mongoose.connection.close()
-            .then(() => {
-                console.log('MongoDB disconnected', mongoose.connection.readyState)})
+            // .then(() => {
+                // console.log('MongoDB disconnected', mongoose.connection.readyState)})
         }catch(err){ console.log(err)}
     }
 
@@ -28,8 +28,7 @@ class ContenedorMongoDB {
     async listAll(){
         try{
             await this.connectDB()
-            const items = await this.model.find({timestamps:{updatedAt:false}})
-            console.log("Items:\n",items.productos)
+            const items = await this.model.find()
             return items;
         }
         catch(error){ console.error(error)}
