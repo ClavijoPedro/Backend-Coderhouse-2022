@@ -7,7 +7,11 @@ class ContenedorMongoDB {
         this.model = mongoose.model('chat', schema);  
     }
 
-
+    //metodo para pasasr a mongoStore (connect-mongo)
+    connection(){
+        return  this.connection
+    }
+    
     async connectDB(){
         try{
             await mongoose.connect(this.connection)
