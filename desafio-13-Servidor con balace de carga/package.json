@@ -1,0 +1,32 @@
+{
+  "name": "desafio-6-desde-0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon -r dotenv/config src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.17.2",
+    "express-handlebars": "^6.0.3",
+    "express-session": "^1.17.2",
+    "minimist": "^1.2.6",
+    "mongoose": "^6.2.7",
+    "normalizr": "^3.6.2",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0",
+    "socket.io": "^4.4.1"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^6.0.0",
+    "dotenv": "^16.0.0"
+  }
+}
