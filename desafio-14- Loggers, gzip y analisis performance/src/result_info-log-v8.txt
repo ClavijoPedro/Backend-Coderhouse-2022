@@ -1,0 +1,170 @@
+Statistical profiling result from info-log-v8.log, (4873 ticks, 2 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+   4185   85.9%          C:\Windows\SYSTEM32\ntdll.dll
+    636   13.1%          C:\Program Files\nodejs\node.exe
+      2    0.0%          C:\Windows\System32\KERNELBASE.dll
+      1    0.0%          C:\Windows\system32\mswsock.dll
+      1    0.0%          C:\Windows\System32\WS2_32.dll
+      1    0.0%          C:\Windows\System32\KERNEL32.DLL
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+      2    0.0%    4.3%  RegExp: ^(?:(~)?\}\})
+      2    0.0%    4.3%  RegExp: (?:\r\n?|\n).*
+      2    0.0%    4.3%  LazyCompile: *wrap D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:101:22
+      2    0.0%    4.3%  LazyCompile: *resolve node:path:158:10
+      2    0.0%    4.3%  LazyCompile: *parse D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:269:30
+      2    0.0%    4.3%  LazyCompile: *deserializeObject D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\bson\lib\parser\deserializer.js:65:27
+      2    0.0%    4.3%  LazyCompile: *compile D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      2    0.0%    4.3%  LazyCompile: *SourceNode_add D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\source-map\lib\source-node.js:172:51
+      1    0.0%    2.1%  RegExp: ^(?:\{\{(~)?\{)
+      1    0.0%    2.1%  LazyCompile: *quotedString D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:118:38
+      1    0.0%    2.1%  LazyCompile: *nextTick node:internal/process/task_queues:104:18
+      1    0.0%    2.1%  LazyCompile: *next D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:478:32
+      1    0.0%    2.1%  LazyCompile: *dirname node:path:653:10
+      1    0.0%    2.1%  LazyCompile: *castChunk D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:52:19
+      1    0.0%    2.1%  LazyCompile: *basename node:path:749:11
+      1    0.0%    2.1%  LazyCompile: *anonymous D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:12:42
+      1    0.0%    2.1%  LazyCompile: *SourceNode_walk D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\source-map\lib\source-node.js:221:53
+      1    0.0%    2.1%  Function: ^shouldSave D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\express-session\index.js:440:24
+      1    0.0%    2.1%  Function: ^session D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\express-session\index.js:179:26
+      1    0.0%    2.1%  Function: ^removeListener node:events:687:28
+      1    0.0%    2.1%  Function: ^readPackageScope node:internal/modules/cjs/loader:321:26
+      1    0.0%    2.1%  Function: ^readFile D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\graceful-fs\graceful-fs.js:111:21
+      1    0.0%    2.1%  Function: ^processTimers node:internal/timers:487:25
+      1    0.0%    2.1%  Function: ^prepareProgram D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\handlebars\dist\cjs\handlebars\compiler\helpers.js:185:24
+      1    0.0%    2.1%  Function: ^onwrite node:internal/streams/writable:425:17
+      1    0.0%    2.1%  Function: ^onWriteComplete node:internal/stream_base_commons:80:25
+      1    0.0%    2.1%  Function: ^isTypedArrayWithEntries D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\safe-stable-stringify\index.js:114:34
+      1    0.0%    2.1%  Function: ^id D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\handlebars\dist\cjs\handlebars\compiler\helpers.js:44:12
+      1    0.0%    2.1%  Function: ^get readConcern D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\mongodb\lib\collection.js:102:20
+      1    0.0%    2.1%  Function: ^get node:internal/streams/duplex:94:8
+      1    0.0%    2.1%  Function: ^ensureBuffer D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\bson\lib\ensure_buffer.js:15:22
+      1    0.0%    2.1%  Function: ^checkError node:internal/streams/destroy:16:20
+      1    0.0%    2.1%  Function: ^callback D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\mongodb\lib\utils.js:489:24
+      1    0.0%    2.1%  Function: ^anonymous D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:12:42
+      1    0.0%    2.1%  Function: ^acquire D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\mongodb\lib\sessions.js:577:12
+      1    0.0%    2.1%  Function: ^Readable.removeAllListeners node:internal/streams/readable:923:49
+      1    0.0%    2.1%  Function: ^Kareem.clone D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\kareem\index.js:434:34
+
+ [C++]:
+   ticks  total  nonlib   name
+
+ [Summary]:
+   ticks  total  nonlib   name
+     45    0.9%   95.7%  JavaScript
+      0    0.0%    0.0%  C++
+     40    0.8%   85.1%  GC
+   4826   99.0%          Shared libraries
+      2    0.0%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+   4185   85.9%  C:\Windows\SYSTEM32\ntdll.dll
+
+    636   13.1%  C:\Program Files\nodejs\node.exe
+    411   64.6%    C:\Program Files\nodejs\node.exe
+     77   18.7%      Function: ^handleWriteReq node:internal/stream_base_commons:45:24
+     77  100.0%        Function: ^writeGeneric node:internal/stream_base_commons:147:22
+     77  100.0%          Function: ^Socket._writeGeneric node:net:769:42
+     77  100.0%            Function: ^Socket._write node:net:806:35
+     53   12.9%      Function: ^compileFunction node:vm:308:25
+     52   98.1%        Function: ^wrapSafe node:internal/modules/cjs/loader:1017:18
+     45   86.5%          Function: ^Module._compile node:internal/modules/cjs/loader:1057:37
+     45  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1112:37
+      7   13.5%          LazyCompile: *Module._compile node:internal/modules/cjs/loader:1057:37
+      7  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1112:37
+      1    1.9%        LazyCompile: ~wrapSafe node:internal/modules/cjs/loader:1017:18
+      1  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1057:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1112:37
+     20    4.9%      Function: ^realpathSync node:fs:2410:22
+     20  100.0%        Function: ^toRealPath node:internal/modules/cjs/loader:393:20
+     20  100.0%          Function: ^tryFile node:internal/modules/cjs/loader:384:17
+     13   65.0%            Function: ^tryExtensions node:internal/modules/cjs/loader:400:23
+      7   35.0%            LazyCompile: *Module._findPath node:internal/modules/cjs/loader:494:28
+     14    3.4%      Function: ^writevGeneric node:internal/stream_base_commons:122:23
+     14  100.0%        Function: ^Socket._writeGeneric node:net:769:42
+     14  100.0%          Function: ^Socket._writev node:net:801:36
+     13   92.9%            Function: ^doWrite node:internal/streams/writable:398:17
+      1    7.1%            LazyCompile: ~doWrite node:internal/streams/writable:398:17
+     14    3.4%      Function: ^stat node:internal/modules/cjs/loader:151:14
+     10   71.4%        Function: ^tryFile node:internal/modules/cjs/loader:384:17
+      9   90.0%          Function: ^tryExtensions node:internal/modules/cjs/loader:400:23
+      7   77.8%            Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+      2   22.2%            Function: ^tryPackage node:internal/modules/cjs/loader:338:20
+      1   10.0%          LazyCompile: *Module._findPath node:internal/modules/cjs/loader:494:28
+      1  100.0%            Function: ^Module._resolveFilename node:internal/modules/cjs/loader:848:35
+      4   28.6%        Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+      4  100.0%          Function: ^Module._resolveFilename node:internal/modules/cjs/loader:848:35
+      4  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:757:24
+     14    3.4%      Function: ^openSync node:fs:576:18
+     14  100.0%        Function: ^readFileSync node:fs:450:22
+     14  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1112:37
+     14  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:969:33
+     12    2.9%      C:\Program Files\nodejs\node.exe
+      2   16.7%        Function: ^splitRoot node:fs:2360:33
+      2  100.0%          Function: ^realpathSync node:fs:2410:22
+      2  100.0%            Function: ^toRealPath node:internal/modules/cjs/loader:393:20
+      1    8.3%        LazyCompile: ~isIPv6 node:internal/net:35:16
+      1  100.0%          LazyCompile: ~isIP node:internal/net:39:14
+      1  100.0%            LazyCompile: ~lookupAndConnect node:net:995:26
+      1    8.3%        LazyCompile: ~<anonymous> D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\express-handlebars\dist\express-handlebars.js:331:47
+      1  100.0%          LazyCompile: ~step D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\express-handlebars\dist\express-handlebars.js:31:18
+      1  100.0%            Function: ^<anonymous> D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\express-handlebars\dist\express-handlebars.js:30:40
+      1    8.3%        LazyCompile: *parse D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:269:30
+      1  100.0%          Function: ^parseWithoutProcessing D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:33:32
+      1  100.0%            LazyCompile: *<anonymous> D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\express-handlebars\dist\express-handlebars.js:227:47
+      1    8.3%        Function: ~<anonymous> D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\@mapbox\node-pre-gyp\lib\util\versioning.js:1:1
+      1  100.0%          LazyCompile: *Module._compile node:internal/modules/cjs/loader:1057:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1112:37
+      1    8.3%        Function: ^fromString D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\mongodb\lib\utils.js:456:22
+      1  100.0%          Function: ^ns D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\mongodb\lib\utils.js:434:12
+      1  100.0%            Function: ^<anonymous> D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\mongodb\lib\cursor\abstract_cursor.js:445:46
+      1    8.3%        Function: ^escapeExpression D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\handlebars\dist\cjs\handlebars\utils.js:77:26
+      1  100.0%          Function: ^<anonymous> :1:20
+      1  100.0%            Function: ^prog D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\handlebars\dist\cjs\handlebars\runtime.js:260:16
+      1    8.3%        Function: ^command D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\mongodb\lib\cmap\connection.js:162:12
+      1  100.0%          Function: ^continueScramConversation D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\mongodb\lib\cmap\auth\scram.js:93:35
+      1  100.0%            Function: ^<anonymous> D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\mongodb\lib\cmap\auth\scram.js:85:80
+      1    8.3%        Function: ^Module._load node:internal/modules/cjs/loader:757:24
+      1  100.0%          Function: ^Module.require node:internal/modules/cjs/loader:997:36
+      1  100.0%            Function: ^require node:internal/modules/cjs/helpers:101:31
+      1    8.3%        Function: ^Minimatch D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\minimatch\minimatch.js:132:20
+      1  100.0%          Function: ^setopts D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\glob\common.js:48:18
+      1  100.0%            Function: ^Glob D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\glob\glob.js:117:15
+      1    8.3%        Function: ^Document.get D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\mongoose\lib\document.js:1737:34
+      1  100.0%          Function: ^get D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\mongoose\lib\helpers\document\compile.js:177:20
+      1  100.0%            C:\Program Files\nodejs\node.exe
+      8    1.9%      Function: ^statSync node:fs:1530:18
+      7   87.5%        Function: ^tryStat D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\express\lib\view.js:174:17
+      7  100.0%          Function: ^resolve D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\express\lib\view.js:146:42
+      7  100.0%            Function: ^lookup D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\express\lib\view.js:104:40
+      1   12.5%        LazyCompile: ~fileExists node:internal/modules/esm/resolve:283:20
+      1  100.0%          LazyCompile: ~legacyMainResolve node:internal/modules/esm/resolve:299:27
+      1  100.0%            LazyCompile: ~packageResolve node:internal/modules/esm/resolve:873:24
+      5    1.2%      LazyCompile: *deserializeObject D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\bson\lib\parser\deserializer.js:65:27
+      4   80.0%        Function: ^deserialize D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\bson\lib\parser\deserializer.js:36:21
+      4  100.0%          Function: ^deserialize D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\bson\lib\bson.js:162:21
+      4  100.0%            Function: ^parse D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\mongodb\lib\cmap\commands.js:577:10
+      1   20.0%        LazyCompile: *deserializeObject D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\bson\lib\parser\deserializer.js:65:27
+      1  100.0%          Function: ^deserialize D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\bson\lib\parser\deserializer.js:36:21
+      1  100.0%            Function: ^deserialize D:\CODERHOUSE\Backend\4Desafios Pruebas\desafio-14-Loggers y gzip\node_modules\bson\lib\bson.js:162:21
+      9    1.4%    LazyCompile: *compileFunction node:vm:308:25
+      9  100.0%      Function: ^wrapSafe node:internal/modules/cjs/loader:1017:18
+      6   66.7%        LazyCompile: *Module._compile node:internal/modules/cjs/loader:1057:37
+      6  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1112:37
+      4   66.7%            LazyCompile: *Module.load node:internal/modules/cjs/loader:969:33
+      2   33.3%            Function: ^Module.load node:internal/modules/cjs/loader:969:33
+      3   33.3%        Function: ^Module._compile node:internal/modules/cjs/loader:1057:37
+      3  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1112:37
+      3  100.0%            LazyCompile: *Module._load node:internal/modules/cjs/loader:757:24
+

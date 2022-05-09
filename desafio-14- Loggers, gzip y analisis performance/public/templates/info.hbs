@@ -1,0 +1,12 @@
+<ul class="list-group w-50 m-auto mt-5">
+    {{#if info}}
+        <li class="list-group-item"><b>Argumentos:</b> {{info.argumentos}}</li>
+        <li class="list-group-item"><b>Sistema operativo:</b> {{info.sistema}}</li>
+        <li class="list-group-item"><b>Node Version:</b> {{info.node}}</li>
+        <li class="list-group-item"><b>Memoria:</b> {{info.memoria}}</li>
+        <li class="list-group-item"><b>Path ejecucion:</b> {{info.path}}</li>
+        <li class="list-group-item"><b>Process ID:</b> {{info.processID}}</li>
+        <li class="list-group-item"><b>Folder:</b> {{info.folder}}</li>
+        <li class="list-group-item"><b>CPUs:</b> {{info.cpus}}</li>
+    {{/if}}
+</ul>
