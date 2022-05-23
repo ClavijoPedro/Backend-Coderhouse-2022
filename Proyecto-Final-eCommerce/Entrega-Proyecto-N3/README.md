@@ -135,19 +135,19 @@ click [aquí](https://coder-tech-ecommerce.herokuapp.com/).
 
 **vista previa sesión usuario**
 
-![vista-previa-sesión-usuario]()
+![vista-previa-sesión-usuario](https://github.com/ClavijoPedro/Backend-Coderhouse-2022/blob/main/Proyecto-Final-eCommerce/Entrega-Proyecto-N3/public/assets/example-gifs/ecommerce-user.gif)
 
 ##
 **vista previa autorización usuario**
 
-![vista-previa-autorización-usuario]()
+![vista-previa-autorización-usuario](https://github.com/ClavijoPedro/Backend-Coderhouse-2022/blob/main/Proyecto-Final-eCommerce/Entrega-Proyecto-N3/public/assets/example-gifs/ecommerce-user-error.gif)
 
 ##
 **vista previa sesión administrador**
 
-![vista-previa-sesión-administrador]()
+![vista-previa-sesión-administrador](https://github.com/ClavijoPedro/Backend-Coderhouse-2022/blob/main/Proyecto-Final-eCommerce/Entrega-Proyecto-N3/public/assets/example-gifs/ecommerce-admin-isAuth.gif)
 
 ##
 **vista previa autorización administrador**
 
-![vista-previa-autorización-administrador]()
+![vista-previa-autorización-administrador](https://github.com/ClavijoPedro/Backend-Coderhouse-2022/blob/main/Proyecto-Final-eCommerce/Entrega-Proyecto-N3/public/assets/example-gifs/ecommerce-Admin-auth-errors.gif)
