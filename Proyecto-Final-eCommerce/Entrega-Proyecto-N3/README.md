@@ -125,3 +125,29 @@ En directorio raiz dentro de config.js modificar:
     ADMIN_EMAIL:'****@dom.com',
     ADMIN_PHONE:'+549******',
 
+## 
+
+**Deploy**
+
+click [aquí](https://coder-tech-ecommerce.herokuapp.com/).
+
+## 
+
+**vista previa sesión usuario**
+
+![vista-previa-sesión-usuario]()
+
+##
+**vista previa autorización usuario**
+
+![vista-previa-autorización-usuario]()
+
+##
+**vista previa sesión administrador**
+
+![vista-previa-sesión-administrador]()
+
+##
+**vista previa autorización administrador**
+
+![vista-previa-autorización-administrador]()
