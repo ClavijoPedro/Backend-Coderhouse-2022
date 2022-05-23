@@ -8,43 +8,48 @@ import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import session from 'express-session';
 import passport from 'passport';
+import path from 'path';
 
 
 
-
-//Router
+//ROUTER
 import productosRouter from './routers/productos.js';
 import carritoRouter from './routers/carrito.js';
+import adminRouter from './routers/admin.js'
 import userRouter from './routers/user.js'
+import e404Router from './routers/404.js';
 
 
-//inicializo passport
+
+//INICIALIZO PASSPORT
 import './auth/passport.js'
-
 
 const app = express();
 
 
 //middlewares JSON, URL y archivos estaticos  
-app.use(express.static('./src/public'))
-app.use(cors())
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
+app.use(express.static(path.join(process.cwd(),'/public')));
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
+
+//motor plantillas
+app.set('view engine', 'ejs');
+app.set('views', path.join(process.cwd(), 'public/views'));
 
 
 //session
-app.use(cookieParser())
+app.use(cookieParser());
 app.use(session({
     secret: config.PRIVATE_KEY,
-    saveUninitialized: true,
+    saveUninitialized: false,
     rolling:true,
-    saveUninitialized:false,
     resave: true,
     cookie: {
         maxAge: 600000
     }
-}))
+}));
 
 
 //Passport
@@ -53,15 +58,17 @@ app.use(passport.session());
 
 
 
-//middlewares router
-app.use('/', userRouter)
-app.use('/api/productos', productosRouter)
-app.use('/api/carrito', carritoRouter)
+//middlewares router y validacion jwt - adminjwt
+app.use('/', userRouter);
+app.use('/api/productos', productosRouter);
+app.use('/api/productos', adminRouter);
+app.use('/api/carrito',  carritoRouter);
+app.use(e404Router);
 
 
 
 //config Clusters && Server  
-const numCPUs = cpus().length
+const numCPUs = cpus().length;
 
 if(cluster.isPrimary && config.MODO === 'cluster' ){
     logger.info(`Primary running PORT ${config.PORT} - PID - ${process.pid}`)
@@ -82,6 +89,6 @@ if(cluster.isPrimary && config.MODO === 'cluster' ){
     });
     server.on('error', (error) => logger.error(error));
 
-}
+};
 
 

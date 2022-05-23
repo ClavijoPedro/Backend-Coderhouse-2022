@@ -8,11 +8,18 @@ const productos = ProductosDaoMongoDB;
 const getProducts = async (req, res) => {   
     const { id } = req.params;
     try{
-        console.log('entre a product controler')
+        const {name, avatar, email} = await req.user
         const product = await productos.listById(id); 
-        const prodList = await productos.listAll();             
-        // console.log(prodList)
-        res.status(200).send(id ? product : prodList); 
+        const prodList = await productos.listAll();
+        //paso plantilla y data a ejs             
+        res.status(200).render(
+            'products', {
+                title:'productos',
+                products:id ? product : prodList,
+                name:name,
+                avatar:`/uploads/${avatar}`,
+                email:email
+            }); 
     }catch(err){ logger.error(err) };
 };
 
@@ -24,7 +31,7 @@ const saveProducts = async (req, res) => {
         if(Object.keys(item).length > 0){ 
             const prodId = await productos.save(item);     
             res.status(200).send(prodId);
-        }else{logger.warn('ingrese un objeto valido')}; 
+        }else{logger.warn('Objeto no valido ingresado')}; 
     }catch(err){ logger.error(err) };
 };
 

@@ -12,16 +12,20 @@ const logger = winston.createLogger({
     transports: [
         new winston.transports.File({
             filename: path.join(process.cwd(), './logs/error.log'),
-            level: 'error',
-        }),
-        new winston.transports.File({
-            filename: path.join(process.cwd(), './logs/warn.log'),
             level: 'warn',
+            maxFiles:10,
+            maxsize:2000000
         }),
+
         new winston.transports.Console({
-            level: 'info'
+            level: 'info',
+            format:winston.format.combine(
+                winston.format.colorize(),
+                winston.format.simple(),
+                winston.format.printf( log => `[${log.level}] [${log.timestamp}] - ${log.message}`)
+            )
         })
-    ]
+    ],
 });
 
 export {logger}

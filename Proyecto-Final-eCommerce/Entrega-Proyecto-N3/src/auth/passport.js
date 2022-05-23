@@ -4,6 +4,7 @@ import { logger } from "../utils/logger.js";
 import {hashPassword, isValidPassword} from '../utils/encryptPassword.js'
 import UsersDaoMongoDB from '../daos/UsersDaoMongoDB.js';
 import sendMail from '../utils/sendMail.js';
+import config from '../../config.js';
 
 
 const LocalStrategy = Strategy;
@@ -11,15 +12,15 @@ const LocalStrategy = Strategy;
 //users DB
 const users = UsersDaoMongoDB;
 
-const ADMIN_MAIL = 'clavijopedro.dev@gmail.com';
+// const ADMIN__EMAIL = 'clavijopedro.dev@gmail.com';
+const ADMIN__EMAIL = config.ADMIN_EMAIL;
 
 //Login
 passport.use('login', new LocalStrategy({
         usernameField: 'email',
         passwordField: 'password',
-        passReqToCallback:true
     },
-    async (req,email, password, done) => {
+    async (email, password, done) => {
         try{      
             let user = await users.listOne({email});
             if (!user) {
@@ -29,6 +30,11 @@ passport.use('login', new LocalStrategy({
             if(!isValidPassword(user, password)){
                 return done(null, false, {message:'Contraseña invalida'});
             }
+
+            if(user.name === 'admin' && user.password === 'admin'){
+                user.role = 'admin'
+            }
+
             return done(null, user);
         }catch(error){logger.info(error)}
     }
@@ -44,22 +50,26 @@ passport.use('login', new LocalStrategy({
     async (req, email, password, done) => {
         try{
             let user = await users.listOne({email})
+
             if(user){
                 return done(`El usuario ${email} ya esta registrado`)
             }
+
+            //si no existe encripto la password
             const hashedPassword = hashPassword(password);
-            
-            //traigo avatar de public y lo paso a user
+
+            //creo el usuario y traigo y traigo su avatar con req.file de multer
             const newUser = {
                 ...req.body,
+                phone:req.body.full_phone || req.body.phone,
                 password: hashedPassword,
-                avatar: req.file.filename
+                avatar: req.file.filename,
             };
 
-            //mando mail
-            const mailOptions = {
+            //mando mail de nuevo registro al administrador 
+            const mailAdminOptions = {
                 from: 'Servidor Node.js',
-                to: ADMIN_MAIL,
+                to: ADMIN__EMAIL,
                 subject: 'Nuevo registro',
                 html: 
                     `<h3>Nuevo usuario Registrado</h3><br>
@@ -73,15 +83,17 @@ passport.use('login', new LocalStrategy({
                         </ul>`
                     ,
             }
-            const infoToAdmin = sendMail(mailOptions)
+            const sendInfoToAdminEmail = sendMail(mailAdminOptions)
 
             //guardo en mongo
             users.save(newUser)
-
+           
             //guardo newUser en req.user
             return done(null, newUser)
 
-        }catch(error){done(error)}
+        }catch(error){
+            logger.error('passport-register_error',error)
+            done(error)}
     }
 ));
 

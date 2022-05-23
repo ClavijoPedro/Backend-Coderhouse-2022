@@ -1,0 +1,36 @@
+<%- include('partials/head')%>
+<body>
+    <div class="register container-fluid d-flex flex-column align-items-center justify-content-center py-5 ">
+        <h1 class="txtBlue mb-5">Registro Usuario</h1>
+        <form action="/register" method="post" class="regform" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="email" name='email' class="form-control mb-3 text-center" placeholder="Email">
+                <input type="password" name="password" class="form-control mb-3 text-center" autocomplete="false" placeholder="Contraseña">
+            </div>
+            <div>
+                <input type="text" name="name" class="form-control mb-3 text-center" placeholder="Nombre">
+                <input type="text" name="age" class="form-control mb-3 text-center" placeholder="Edad">
+                <input type="tel" id="phone" class="form-control mb-3 text-center" >                
+                <input type="text" name="address" class="form-control mb-3 text-center" placeholder="Dirección">
+                <label for="avatar" class="txtBlue mb-2 ">Imagen de perfil</label>
+                <input type="file" class="mb-5 form-control"  name="avatar" value ="Imagen de Perfil">
+            </div>
+            <div class="pd-telephone-input">
+
+            </div>
+            <button  class="btn btn-primary">SignUp</button>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.16/js/intlTelInput.js"></script>
+    <script>
+        const phoneInputField = document.querySelector("#phone"); 
+        const phoneInput = window.intlTelInput(phoneInputField, { 
+            utilsScript:"https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.16/js/utils.js",
+            preferredCountries:["ar", "co"],
+            hiddenInput:"full_phone",
+            nationalMode:false,
+        });
+        //cambien full_phone de new user en passpot por phone para probar con postman
+    </script>
+</body>
+</html>

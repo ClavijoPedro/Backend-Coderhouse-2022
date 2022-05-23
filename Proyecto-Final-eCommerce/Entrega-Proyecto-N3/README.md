@@ -1,6 +1,7 @@
 # Entrega Nº3 Proyecto eCommerce
 
   
+
 ## Consigna
 
   Realizar un  menú  de  registro  y  autenticación  de  usuarios  basado  en  passport  local, guardando  en la  base  de  datos  las  credenciales  y  el  resto  de  los  datos  ingresados  al  momento  del registro.
@@ -51,7 +52,6 @@ Envío  de  un  email  y  un  mensaje  de  whatsapp  al  administrador  desde  e
 
 El testeo de la misma se realizó mediante **Postman**. Se utilizo el servicio de MongoDB para persistencia en la nube.
 
-  
 
 ##
 #### Estructura Producto:
@@ -82,3 +82,46 @@ Para realizar las pruebas se paso el siguiente esquema de usuario en Postman:
         phone: Number,
         avatar: String
     }
+
+
+### Acceso a rutas
+
+**Ver imagen de perfil en browser**
+    
+    -Ruta: https://localhost:3000/uploads 
+
+**Sessión Administrador**
+
+- Al validarse se accede a ruta 'api/productos', metodos:
+    
+      POST, PUT, DELETE
+
+
+### Instructivo de ejecución y configuración
+
+
+#### Comandos utiles CLI
+
+- tasklist /fi "imagename eq node.exe" -> lista todos los procesos de node.js activos
+
+- taskkill /pid numpid /f -> mata un proceso por su número de PID
+
+- taskkill /im node.exe /f -> mata todos los procesos
+
+##
+**Ejecución modo Cluster**
+
+    npm start cluster 
+
+##
+**Test de carga con Artillery**
+
+    artillery quick --count 100 -n 20 "http://localhost:3000/api/productos" > performance_test.txt
+
+**Variables globales administrador para envio de mensajeria mediante Twilio & Nodemailer**:
+
+En directorio raiz dentro de config.js modificar:
+
+    ADMIN_EMAIL:'****@dom.com',
+    ADMIN_PHONE:'+549******',
+

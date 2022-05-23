@@ -9,28 +9,36 @@ import config from '../../config.js';
 const carrito = CarritoDaoMongoDB;
 const productos = ProductosDaoMongoDB;
 
+//VARIABLES ADMIN
+const ADMIN__EMAIL=config.ADMIN_EMAIL;
+const ADMIN__PHONE=config.ADMIN_PHONE;
+
 
 //Crea un carrito y devuelve su id
 const createCart = async (req, res) => {    
     try{
-        const cartId = await carrito.save({productos:[]}); 
-        res.status(200).send(cartId);                    
+        const cartId = await carrito.save({productos:[]});
+        const user = await req.user 
+        user.cart_id = cartId //prueba
+        res.status(200).send({id:cartId});                    
     }catch(err){ logger.error(err) };
 };
 
-//Envia orden de productosal admin
+
+//Envia orden de productos al admin
 const orderCartProudcts = async (req,res) => {
     const { cart_id } = req.params;
     const {name, email, phone} = await req.user;
 
     try{
         const cart = await carrito.listById(cart_id);
-        if(cart && req.user){
-            const cartProducts = cart.productos;
-
-            const mailOptions = {
+        const cartProducts = cart.productos;
+        if(cartProducts.length && req.user){
+            
+            //Envio email
+            const mailAdminOptions = {
                 from: 'Servidor Node.js',
-                to: 'clavijopedro.dev@gmail.com',
+                to: ADMIN__EMAIL,
                 subject: `Nuevo pedido ${name} ${email}`, 
                 html: `
                     <h3>Nuevo pedido:</h3>
@@ -40,16 +48,26 @@ const orderCartProudcts = async (req,res) => {
                     </ul>
                 `
             };
-            const sendOrderToAdmin = await sendMail(mailOptions);
-
-            // const whatspOptions = {
-            //     body: `${name} (${email}) tu pedido fue recibido y esta siendo procesado`,
-            //     from:config.TWILIO_WHTSP_TRIAL_NUMBER,
-            //     to:config.TWILIO_TO_NUMBER
-            // }
-
-            // const sendOrderToClient = await sendTxtMessage(whatspOptions)
-            res.send(cartProducts)
+            const sendOrderToAdminEmail = await sendMail(mailAdminOptions);
+            
+            //Envio mensaje whatsapp al Admin
+            const wappAdminOptions = {
+                body: `Nuevo pedido de ${name} (${email})`,
+                from:config.TWILIO_WHTSP_TRIAL_NUMBER,
+                to:`whatsapp:${ADMIN__PHONE}`
+            }
+            const sendOrderToAdminWapp = await sendTxtMessage(wappAdminOptions)
+            
+            
+            //Envio mensaje whatsapp al cliente
+            const wappClientOptions = {
+                body: `${name} (${email}) tu pedido fue recibido y esta siendo procesado`,
+                from:config.TWILIO_WHTSP_TRIAL_NUMBER,
+                to:`whatsapp:${phone}`
+            }
+            const sendOrderToClientWapp = await sendTxtMessage(wappClientOptions)
+            
+            res.send('Orden enviada')
         }
 
     }catch(err){logger.error(err)}
@@ -82,9 +100,12 @@ const sendToCart = async (req, res) => {
     try{
         const cart = await carrito.listById(cart_id); 
         const product = await productos.listById(id);
-        cart.productos.push(product);
-        await carrito.updateById(cart_id,cart);
-        res.status(201).send('Producto agregado'); 
+        const isInCart = cart.productos.some(p => p.id == id);
+        if(!isInCart){
+            cart.productos.push(product);
+            await carrito.updateById(cart_id,cart);
+            res.status(201).send('Producto agregado'); 
+        }
     }catch(err){ logger.error(err) }; 
 };
 

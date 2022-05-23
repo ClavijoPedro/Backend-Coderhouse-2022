@@ -1,12 +1,10 @@
 import nodemailer, {  createTransport } from "nodemailer";
 import config from "../../config.js";
 import {logger }from './logger.js'
+
 //*==================================[NOTA]======================================*//
-//DESACTIVAR ANTIVIRUS PORQUE BLOQUEA LA CONEXION
+//DESACTIVAR ANTIVIRUS PORQUE PUEDE BLOQUEAR LA CONEXION
 
-
-
-//
 const transporter = nodemailer.createTransport({
     service:'gmail',
     port: 587,
