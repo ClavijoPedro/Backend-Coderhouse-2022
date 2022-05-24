@@ -1,0 +1,54 @@
+
+    <!---------------------------- logOut --------------------------------->
+    
+    <div class="logOut">
+      <h5>Bienvenido {{nombre}}</h5>
+      <button class="btn btnOut btn-primary" onclick=window.location.href='/logout'>LogOut</button>
+    </div>
+
+    <!----------------------Tabla productos-------------------------------->
+
+    <h2 class="mb-5 titulo mt-5">Vista Productos</h2>
+    {{#if products.length}}
+        <table class="table tabla table-striped bg-light rounded">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Foto</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each products }}
+                <tr>
+                    <td class="align-middle">{{this.name}}</td>
+                    <td class="align-middle">{{this.price}}</td>
+                    <td class="align-middle"><img class="tblImg" src="{{this.image}}" alt="prodImg"></td>
+                </tr>
+            {{/each}}      
+          </tbody>
+        </table>
+        {{else}}
+            <h5 class="mb-5 bg-light p-5 rounded">No hay productos</h5>
+    {{/if}}
+
+    <!----------------------------- chat mensajes  ---------------------------->
+
+    <div class="border form border-primary border-1 rounded-3 p-5 mt-5 bg-info m-auto w-50">
+      <h2 class="text-center mb-4">Chat</h2>
+      <div class="mb-3 w-50 m-auto">      
+        <input type="email" name="mail" class="form-control input" id="userMail"  placeholder="ingrese un E-mail">       
+        <input type="text" name="userName" class="form-control input" id="userName"  placeholder="ingrese su nombre">       
+        <input type="text" name="userLastName" class="form-control input" id="userLastName"  placeholder="ingrese su apellido">       
+        <input type="text" name="userAge" class="form-control input" id="userAge"  placeholder="ingrese su edad">       
+        <input type="text" name="userAlias" class="form-control input" id="userAlias"  placeholder="ingrese su alias">
+        <input type="text" name="userAvatar" class="form-control input" id="userAvatar"  placeholder="ingrese su avatar">     
+      </div>
+      <div id="mensajes" class="m-auto w-50  text-center mb-3 px-2 pt-2"></div>
+      <p id="compression"></p>
+      <form id="msjsForm" class="m-auto d-flex">
+        <input type="text" name="message" class="form-control" id="userMsj" required placeholder="Mensaje">
+        <button id="btnChat" class="btn btn-primary ml-1">Enviar</button>
+      </form>
+    </div>
+    
