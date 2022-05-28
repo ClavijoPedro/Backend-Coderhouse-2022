@@ -1,7 +1,7 @@
 "use strict";
 
 //variable global del id
-let cartId = '';
+let cartId;
 
 
 //opciones fetch
@@ -12,33 +12,32 @@ const fetchOptions ={
     headers: {
         'Content-Type': 'application/json'
     }
-}
+};
 
 
 
 //CREA CARRITO Y GUARDA EL PRODUCTO (GUARDA ID CARRITO EN VARIABLE GLOBAL)
 async function addToCart(id) {
-    try {
+    try{
         if(!cartId){
             const newCart = await fetch(baseUrl, fetchOptions);
             const cartData = await newCart.json();
             cartId = cartData.id
             const addProduct = await fetch(`${baseUrl}/${cartId}/productos/${id}`,fetchOptions)
+            console.log('carrito creado:',cartId)
             return
         }
         const addProduct = await fetch(`${baseUrl}/${cartId}/productos/${id}`,fetchOptions)
-    } catch (error) {
-        console.error(error);
-    }
-}
+    }catch (error) {console.log(error)}
+};
 
 
 //TRAE PRODUCTOS CARRITO Y LOS IMPRIME
 async function showCart() {
-    const cartView = document.getElementById('cart');
+    const cartView = document.getElementById('cartItems');
     const btnConfirm = document.getElementById('btnConfirm')
     const btnDelCart = document.getElementById('btnDelCart')
-    try {
+    try{
         if(cartId){
             const cart = await fetch(`${baseUrl}/${cartId}/productos`, {method:'get'});
             const cartData = await cart.json()
@@ -57,10 +56,8 @@ async function showCart() {
             ));
             cartView.innerHTML = cartProducts;
         }
-    } catch (error) {
-        console.error(error);
-    }
-}
+    }catch (error) {console.log(error)}
+};
 
 
 //ELIMINA PRODUCTO DEL CARRITO
@@ -71,26 +68,32 @@ async function deleteFromCart(id) {
         cartRow.remove()
         console.log('producto eliminado')
     }catch(error){console.log(error)}
-}
+};
 
 
 //ELIMINA CARRITO
 async function deleteCart(id){
-    const cartView = document.getElementById('cart');
+    const cartView = document.getElementById('cartItems');
     try{
         const cart = await fetch(`${baseUrl}/${cartId}`, {method:'delete'});
         cartView.innerHTML='';
-        cartId = undefined;
+        cartId = '';
         console.log('carrito eliminado')
     }catch(error){console.log(error)}
-}
+};
 
 
 //ENVIA ORDEN DE PRODUCTOS
 const sendOrder = async () => {
+    const cartView = document.getElementById('cartItems')
     try{
         const orderSended = await fetch(`${baseUrl}/${cartId}/order`, fetchOptions);
         console.log('orden enviada')
+        cartView.innerHTML = 
+            `<tr class="text-center">
+                <td colspan="3" class="py-3 table-info">Su código de pedido es:<br><b>${cartId}<b></td>
+            </tr>`
+        cartId = '';
     }catch(error){ console.log(error)}
     
-}
+};

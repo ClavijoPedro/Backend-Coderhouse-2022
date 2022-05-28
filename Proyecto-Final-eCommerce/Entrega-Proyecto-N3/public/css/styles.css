@@ -2,6 +2,9 @@ body{
     background-color: black;
 }
 
+.hide{
+    display: none;
+}
 .bg-dark{
     background-color: black !important;
 }

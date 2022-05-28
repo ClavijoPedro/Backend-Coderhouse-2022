@@ -3,6 +3,7 @@ import prodControl from '../controllers/productosController.js'
 import isAdmin from '../middlewares/isAdmin.js';
 
 
+//instancia router
 const adminRouter = Router();
 
 

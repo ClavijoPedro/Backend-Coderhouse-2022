@@ -1,4 +1,4 @@
-import { logger } from "../utils/logger.js";
+import logger from "../utils/logger.js";
 import { isValidPassword } from "../utils/encryptPassword.js";
 import config from "../../config.js";
 

@@ -1,4 +1,4 @@
-import { logger } from '../utils/logger.js';
+import logger from '../utils/logger.js';
 import CarritoDaoMongoDB from '../daos/CarritoDaoMongoDB.js';
 import ProductosDaoMongoDB from '../daos/ProductosDaoMongoDB.js';
 import sendMail from '../utils/sendMail.js';

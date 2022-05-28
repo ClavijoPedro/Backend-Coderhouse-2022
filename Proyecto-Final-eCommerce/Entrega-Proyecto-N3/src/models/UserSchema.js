@@ -10,6 +10,7 @@ const UserSchema = new Schema({
     address:{type:String, required:true},
     phone:{type: String, required:true},
     avatar:{type: String},
+    // avatar:{data:Buffer, contentType: String }
 });
 
 export {UserSchema}

@@ -3,6 +3,8 @@ import cartContrl from '../controllers/carritoController.js'
 import isAuth from '../middlewares/isAuth.js'
 
 
+
+//instancia router 
 const carritoRouter = Router();
 
 

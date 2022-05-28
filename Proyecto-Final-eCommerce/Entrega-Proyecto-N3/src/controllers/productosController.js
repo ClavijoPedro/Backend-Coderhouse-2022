@@ -1,4 +1,4 @@
-import { logger } from '../utils/logger.js';
+import logger from '../utils/logger.js';
 import ProductosDaoMongoDB from '../daos/ProductosDaoMongoDB.js';
 
 const productos = ProductosDaoMongoDB;

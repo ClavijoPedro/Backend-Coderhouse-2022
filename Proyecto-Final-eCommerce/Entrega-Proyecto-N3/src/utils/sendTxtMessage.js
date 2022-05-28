@@ -1,6 +1,6 @@
 import twilio from 'twilio'
 import config from '../../config.js'
-import { logger } from './logger.js';
+import logger from './logger.js';
 
 
 const accountSid = config.TWILIO_SID;

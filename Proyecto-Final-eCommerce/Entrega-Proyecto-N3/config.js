@@ -1,4 +1,4 @@
-import  dotenv, { config } from 'dotenv'
+import  dotenv from 'dotenv'
 dotenv.config()
 //*==================================[NOTA]======================================*//
 
@@ -29,7 +29,7 @@ export default{
     //VARIABLES GLOBALES PARA ENVIO DE EMAIL Y WHATSAP A ADMIN
     ADMIN_EMAIL:process.env.ADMIN__EMAIL,
     ADMIN_PHONE:process.env.ADMIN__PHONE,
-
+ 
 }
 
 

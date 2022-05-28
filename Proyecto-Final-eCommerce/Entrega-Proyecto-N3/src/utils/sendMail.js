@@ -1,6 +1,6 @@
 import nodemailer, {  createTransport } from "nodemailer";
 import config from "../../config.js";
-import {logger }from './logger.js'
+import logger from './logger.js'
 
 //*==================================[NOTA]======================================*//
 //DESACTIVAR ANTIVIRUS PORQUE PUEDE BLOQUEAR LA CONEXION

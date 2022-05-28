@@ -1,6 +1,6 @@
 import express from 'express';
 import config from '../config.js';
-import { logger } from './utils/logger.js'; 
+import logger from './utils/logger.js'; 
 import { cpus } from 'os';
 import cluster from 'cluster';
 import cors from 'cors'
@@ -58,7 +58,7 @@ app.use(passport.session());
 
 
 
-//middlewares router y validacion jwt - adminjwt
+//middlewares router 
 app.use('/', userRouter);
 app.use('/api/productos', productosRouter);
 app.use('/api/productos', adminRouter);

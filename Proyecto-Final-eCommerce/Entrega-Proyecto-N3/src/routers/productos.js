@@ -3,6 +3,7 @@ import prodControl from '../controllers/productosController.js'
 import isAuth from '../middlewares/isAuth.js'
 
 
+//instancia router
 const productosRouter = Router();
 
 

@@ -2,6 +2,7 @@ import { Router } from "express";
 import userControl from '../controllers/userController.js'
 import passport from 'passport'
 import upload from "../utils/multerUpload.js";
+import isAdmin from "../middlewares/isAdmin.js";
 
 
 const userRouter = new Router()
@@ -25,6 +26,7 @@ userRouter.post('/register', upload, passport.authenticate('signup',
         successRedirect:'/api/productos'
     }
 ));
+
 
 userRouter.get('/uploads', userControl.uploads)
 

@@ -1,6 +1,6 @@
 import passport from 'passport'
 import { Strategy } from "passport-local";
-import { logger } from "../utils/logger.js";
+import logger from "../utils/logger.js";
 import {hashPassword, isValidPassword} from '../utils/encryptPassword.js'
 import UsersDaoMongoDB from '../daos/UsersDaoMongoDB.js';
 import sendMail from '../utils/sendMail.js';
@@ -29,10 +29,6 @@ passport.use('login', new LocalStrategy({
             }
             if(!isValidPassword(user, password)){
                 return done(null, false, {message:'Contraseña invalida'});
-            }
-
-            if(user.name === 'admin' && user.password === 'admin'){
-                user.role = 'admin'
             }
 
             return done(null, user);
