@@ -13,13 +13,13 @@ import yargs from 'yargs'
 
 //*==================================[]======================================*//
 
-const argv = yargs(process.argv.slice(2)).argv
-// console.log(argv)
+const args = yargs(process.argv.slice(2)).argv;
+console.log(args.db)
 
 
 export default{
     MONGO_URI: process.env.MONGO_DB_URI,
-    DB_CLIENT: argv.db,
+    DB_CLIENT: args.db,
     PORT: process.env.PORT || 3000,
     MODO : process.argv[2],
     PRIVATE_KEY: process.env.PRIVATE__KEY,

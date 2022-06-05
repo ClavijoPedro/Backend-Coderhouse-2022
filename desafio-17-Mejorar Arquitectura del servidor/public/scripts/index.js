@@ -3,7 +3,7 @@
 //variable global del id
 let cartId;
 
-
+console.log(cartId)
 //opciones fetch
 const baseUrl = '/api/carrito'
 const fetchOptions ={
@@ -19,12 +19,13 @@ const fetchOptions ={
 //CREA CARRITO Y GUARDA EL PRODUCTO (GUARDA ID CARRITO EN VARIABLE GLOBAL)
 async function addToCart(id) {
     try{
+        console.log('esto es prodid', id)
         if(!cartId){
             const newCart = await fetch(baseUrl, fetchOptions);
             const cartData = await newCart.json();
             cartId = cartData.id
+            console.log('url', `${baseUrl}/${cartId}/productos/${id}`)
             const addProduct = await fetch(`${baseUrl}/${cartId}/productos/${id}`,fetchOptions)
-            console.log('carrito creado:',cartId)
             return
         }
         const addProduct = await fetch(`${baseUrl}/${cartId}/productos/${id}`,fetchOptions)
@@ -41,31 +42,34 @@ async function showCart() {
         if(cartId){
             const cart = await fetch(`${baseUrl}/${cartId}/productos`, {method:'get'});
             const cartData = await cart.json()
+            console.log('cartdata', cart)
             if(cartData.length){
                 btnConfirm.classList.remove('d-none')
                 btnDelCart.classList.remove('d-none')
             }
             const cartProducts = cartData.map( p => (
-              ` <tr id='${p._id}'>
+              ` <tr id='${p._id || p.id}'>
                   <td><img class="tblImg" src=${p.image} alt="imgProd"></td>
                   <td>${p.name}</td>
                   <td>$${p.price}</td>
-                  <td><button onclick="deleteFromCart('${p._id}')" class="btn-close"></button></td>
+                  <td><button onclick="deleteFromCart('${(p._id || p.id)}')" class="btn-close"></button></td>
                 </tr>
               `
             ));
             cartView.innerHTML = cartProducts;
         }
-    }catch (error) {console.log(error)}
+    }catch(error) {console.log(error)}
 };
 
 
 //ELIMINA PRODUCTO DEL CARRITO
 async function deleteFromCart(id) {
+    console.log(id)
     const cartRow = document.getElementById(id)
     try{
-        await fetch(`${baseUrl}/${cartId}/productos/${id}`, {method:'delete'})
-        cartRow.remove()
+        const deleted = await fetch(`${baseUrl}/${cartId}/productos/${id}`, {method:'delete'});
+        console.log('esto es deleted',deleted)
+        if(deleted.ok){cartRow.remove()};
         console.log('producto eliminado')
     }catch(error){console.log(error)}
 };

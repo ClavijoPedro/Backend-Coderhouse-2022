@@ -87,9 +87,9 @@ passport.use('login', new LocalStrategy({
             users.save(newUser)
 
             const userDto = new UserDTO(newUser)
-
+     
             //guardo dto en req.user
-            return done(null, userDto)
+            return done(null, newUser)
 
         }catch(error){
             logger.error('passport-register_error',error)

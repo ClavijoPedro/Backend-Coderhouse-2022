@@ -99,6 +99,7 @@ const sendToCart = async (req, res) => {
     try{
         const cart = await carrito.listById(cart_id); 
         const product = await productos.listById(id);
+        console.log('product', product.id)
         const isInCart = cart.productos.some(p => p.id == id);
         if(!isInCart){
             cart.productos.push(product);

@@ -20,7 +20,7 @@ class ProductsDaoMemDB extends DAO{
 
     listAll(){
         try{
-            console.log(this.num)
+            console.log(this.db)
             this.db.forEach((e) => console.log(e))
             return this.db;
         }

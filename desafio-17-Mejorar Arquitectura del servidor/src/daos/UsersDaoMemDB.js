@@ -20,7 +20,6 @@ class UsersDaoMemDB extends DAO{
 
     listAll(){
         try{
-            console.log(this.num)
             this.db.forEach((e) => console.log(e))
             return this.db;
         }

@@ -18,6 +18,7 @@ class ProductsRepository{
     }
 
     async add(prod){
+        console.log(prod)
         const dto = new ProductDTO(prod);
         await this.dao.save(dto);
     }
