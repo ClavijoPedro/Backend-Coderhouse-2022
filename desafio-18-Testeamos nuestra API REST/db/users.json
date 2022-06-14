@@ -1,1 +1,27 @@
-[]
+[
+    {
+        "email": "p@gmail.com",
+        "password": "$2b$10$JX2EcutcQg4XfLdXKhrD4OU99apF/1vNipXqcYcXH5K7GNPsRadXm",
+        "name": "pp",
+        "age": "33",
+        "full_phone": "+5491161222224",
+        "address": "p",
+        "phone": "+5491161222224",
+        "avatar": "1654447437976-avatar-user-session.png",
+        "timestamp": "5/6/2022 13:43:58",
+        "id": 1,
+        "code": 1654447438067
+    },
+    {
+        "name": "admin",
+        "email": "admin@admin",
+        "password": "$2b$10$DFPCd5DPKtCwYHfdzaeBku5j6lFyngQcb08ihgJSIkfAHTo6P7t8e",
+        "age": "0",
+        "address": "admin",
+        "phone": "1161222225",
+        "avatar": "1654448300851-avatar-admin-session.png",
+        "timestamp": "5/6/2022 13:58:20",
+        "id": 2,
+        "code": 1654448300936
+    }
+]

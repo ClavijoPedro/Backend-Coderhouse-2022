@@ -6,9 +6,11 @@
   "type": "module",
   "scripts": {
     "start": "node src/server.js",
-    "filedb":"node src/server.js --db filedb",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/server.js"
+    "filedb": "node src/server.js --db filedb",
+    "test-filedb": "node src/test/index.manual.test.js --db filedb",
+    "test-mongo": "node src/test/index.manual.test.js",
+    "test": "mocha src/test/index.mocha.test.js",
+    "dev": "nodemon src/server.js --db filedb"
   },
   "keywords": [],
   "author": "",
@@ -32,10 +34,13 @@
     "passport-local": "^1.0.0",
     "twilio": "^3.77.0",
     "winston": "^3.7.2",
-    "yargs": "^17.5.1"
+    "yargs": "^17.5.1",
+    "dotenv": "^16.0.0"
   },
   "devDependencies": {
-    "dotenv": "^16.0.0",
-    "nodemon": "^2.0.15"
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.3"
   }
 }

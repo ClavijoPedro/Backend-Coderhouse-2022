@@ -1,0 +1,38 @@
+TEST MONGODB SERVER - WITH MOCHA, CHAI & SUPERTEST  
+
+
+  Test Api RESTful
+    GET /productos
+      ✔ Debe devolver status 200 y traer array de productos tipo JSON (196ms)
+    POST /productos
+      ✔ Debe guardar un producto y devolver su Id y status 200 (176ms)
+    PUT /productos
+      ✔ Debe Actualizar un producto y devolver un objeto con propiedad status y Id (173ms)
+    DELETE /productos
+      ✔ Debe eliminar un producto y devolver un objeto con propiedad status y Id (169ms)
+
+
+  4 passing (725ms)
+
+
+
+------------------------------------------------------------------------------------------------------------
+
+  
+  TEST FILEDB SERVER - WITH MOCHA, CHAI & SUPERTEST
+
+  Test Api RESTful
+    GET /productos
+      ✔ Debe devolver status 200 y traer array de productos tipo JSON (59ms)
+    POST /productos
+      ✔ Debe guardar un producto y devolver su Id y status 200 (53ms)
+    PUT /productos
+      ✔ Debe Actualizar un producto y devolver un objeto con propiedad status y Id
+    DELETE /productos
+      ✔ Debe eliminar un producto y devolver un objeto con propiedad status y Id
+
+
+  4 passing (143ms)
+
+
+  

@@ -20,17 +20,17 @@ class ProductsRepository{
     async add(prod){
         console.log(prod)
         const dto = new ProductDTO(prod);
-        await this.dao.save(dto);
+        const id = await this.dao.save(dto);
+        return  id
     }
 
     async updateById(id, update){
-        const dto = new ProductDTO(update);
-        await this.dao.updateById(id, dto);
+        await this.dao.updateById(id, update);
     }
 
     async deleteById(id){
         const dto = await this.dao.deleteById(id);
-        return new ProductDTO(dto);
+        return dto
     }
     
 }

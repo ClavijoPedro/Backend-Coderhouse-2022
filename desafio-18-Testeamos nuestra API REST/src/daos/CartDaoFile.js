@@ -23,7 +23,7 @@ class CartDaoFile extends DAO {
     async listAll(){
         try{
             const itemList = await fs.readFile(this.file, 'utf-8')
-            logger.info('esto es item list',itemList)
+            // logger.info('esto es item list',itemList)
             return JSON.parse(itemList)
         }catch(err){
             if(err.code === 'ENOENT'){
@@ -39,7 +39,7 @@ class CartDaoFile extends DAO {
         try{
             const itemList = await this.listAll();
             const item = itemList.find( itm => itm.id === Number(id));
-            logger.info('Item:\n',item)
+            // logger.info('Item:\n',item)
             return item
         }catch(err){ logger.error(err)}
     };
@@ -62,7 +62,7 @@ class CartDaoFile extends DAO {
             const newItem = {...itm, timestamp, id, code}
             const newItemList = [...itemList, newItem]
             await fs.writeFile(this.file, JSON.stringify(newItemList, null, 4));
-            logger.info('Item  guardado:\n', newItem)
+            // logger.info('Item  guardado:\n', newItem)
             return id
         }catch(err){
             logger.error(`no se pudo guardar el item error: ${err}`);

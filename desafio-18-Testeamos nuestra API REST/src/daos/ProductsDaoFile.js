@@ -9,9 +9,7 @@ class ProductsDaoFile extends DAO {
     
     constructor(file){
         super();
-        this.file = './db/products.json';
-        this.list = this.listAll();
-        
+        this.file = './db/products.json';      
     };
 
     //singleton
@@ -25,7 +23,7 @@ class ProductsDaoFile extends DAO {
     async listAll(){
         try{
             const itemList = await fs.readFile(this.file, 'utf-8')
-            logger.info('esto es item list',itemList)
+            // logger.info('esto es item list',itemList)
             return JSON.parse(itemList)
         }catch(err){
             if(err.code === 'ENOENT'){
@@ -39,9 +37,9 @@ class ProductsDaoFile extends DAO {
 
     async listById(id){
         try{
-            const itemList = await this.list;
+            const itemList = await this.listAll();
             const item = itemList.find( itm => itm.id === Number(id));
-            logger.info('Item:\n',item)
+            // logger.info('Item:\n',item)
             return item
         }catch(err){ logger.error(err)}
     };
@@ -64,7 +62,7 @@ class ProductsDaoFile extends DAO {
             const newItem = {...itm, timestamp, id, code}
             const newItemList = [...itemList, newItem]
             await fs.writeFile(this.file, JSON.stringify(newItemList, null, 4));
-            logger.info('Item  guardado:\n', newItem)
+            // logger.info('Item  guardado:\n', newItem)
             return id
         }catch(err){
             logger.error(`no se pudo guardar el item error: ${err}`);
@@ -74,7 +72,7 @@ class ProductsDaoFile extends DAO {
 
     async updateById(id, itmUpdate){
         try{
-            const itemList = await this.list;
+            const itemList = await this.listAll();
             const index = itemList.findIndex( itm => itm.id === Number(id));
             if(index < 0){
                 throw new Error(`No se encuentra el producto`);
@@ -83,6 +81,7 @@ class ProductsDaoFile extends DAO {
                 const newItem = Object.assign({},item, itmUpdate);
                 itemList[index] = newItem;
                 await fs.writeFile(this.file, JSON.stringify(itemList, null, 4));
+                return {status:'Producto Actualizado', id:id};
             }
         }catch(err){
             logger.error(`No se pudo actualizar el item erro: ${err}`);
@@ -92,9 +91,10 @@ class ProductsDaoFile extends DAO {
 
     async deleteById(id){
         try{
-            const itemList = await this.list;
+            const itemList = await this.listAll();
             const newItemList = itemList.filter(itm => itm.id !== Number(id));
             await fs.writeFile(this.file, JSON.stringify(newItemList, null, 4))
+            return {status:'Producto eliminado', id:id}//para mostrar server response en consola
         }catch(err){
             logger.error(`no se pudo eliminar el item error: ${err}`);
         }

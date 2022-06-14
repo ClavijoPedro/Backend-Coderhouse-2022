@@ -9,19 +9,10 @@ const products = new ProductsRepository();
 const getProducts = async (req, res) => {   
     const { id } = req.params;
     try{
-        const {name, avatar, email} = await req.user
         const product = id ? await products.getById(id):'';
-        const prodList = await products.getAll();
-        //paso plantilla y data a ejs             
-        res.status(200).render(
-            'products', {
-                title:'',
-                products:id ? product : prodList,
-                name:name,
-                avatar:`/uploads/${avatar}`,
-                email:email
-            }); 
-    }catch(err){ console.log(err) };
+        const prodList = await products.getAll();          
+        res.status(200).json(id ? product : prodList); 
+    }catch(err){ logger.error(err) };
 };
 
 
@@ -30,8 +21,8 @@ const saveProducts = async (req, res) => {
     const item = req.body;
     try{
         if(Object.keys(item).length > 0){ 
-            const prodId = await products.add(item);     
-            res.status(200).send(prodId);
+            const prodId = await products.add(item);   
+            res.status(200).json(prodId);
         }else{logger.warn('Objeto no valido ingresado')}; 
     }catch(err){ logger.error(err) };
 };
@@ -44,7 +35,7 @@ const UpdateProducts = async (req, res) => {
     try{
         if(id && Object.keys(prod).length > 0){
             await products.updateById(id, prod);
-            res.status(201).send('Producto Actualizado');
+            res.status(201).json({status:'Producto Actualizado', id:id});
         }
     }catch(err){ logger.error(err) }           
 };
@@ -56,7 +47,7 @@ const deleteProduct = async (req, res) => {
     try{
         if(id){
             await products.deleteById(id);
-            res.status(200).send('Producto eliminado');
+            res.status(200).json({status:'Producto eliminado', id:id});
         };
     }catch(err){ logger.error(err) }
 };

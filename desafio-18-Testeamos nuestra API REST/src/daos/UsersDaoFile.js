@@ -25,7 +25,7 @@ class UsersDaoFile extends DAO {
     async listAll(){
         try{
             const itemList = await fs.readFile(this.file, 'utf-8')
-            logger.info('esto es item list',itemList)
+            // logger.info('esto es item list',itemList)
             return JSON.parse(itemList)
         }catch(err){
             if(err.code === 'ENOENT'){

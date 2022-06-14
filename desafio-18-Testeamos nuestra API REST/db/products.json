@@ -1,6 +1,6 @@
 [
     {
-        "id":1,
+        "id": 1,
         "name": "notebook",
         "description": "notebook lenovo",
         "price": 100000,
@@ -9,7 +9,7 @@
         "code": "1652838326406"
     },
     {
-        "id":2,
+        "id": 2,
         "name": "monitor ",
         "description": "monitor dell gamer 25\"",
         "price": 140000,
@@ -18,7 +18,7 @@
         "code": "1652839068972"
     },
     {
-        "id":3,
+        "id": 3,
         "name": "parlantes",
         "description": "parlantes gamer c/ luces ",
         "price": 4500,
@@ -27,7 +27,7 @@
         "code": "1652839157459"
     },
     {
-        "id":4,
+        "id": 4,
         "name": "teclado",
         "description": "kti teclado para celular",
         "price": 6000,
@@ -36,13 +36,32 @@
         "code": "1652839304652"
     },
     {
-        "id":5,
+        "id": 5,
         "name": "mouse",
         "description": "mouse redragon gamer",
         "price": 1900,
         "stock": 10,
         "image": "https://http2.mlstatic.com/D_NQ_NP_981372-MLA32147907497_092019-O.webp",
         "code": "1652839398628"
+    },
+    {
+        "id": 6,
+        "name": "test-product",
+        "description": "test-product",
+        "price": 100000,
+        "stock": 10,
+        "image": "test-product-url",
+        "code": 1655242393926,
+        "timestamp": "14/6/2022 18:33:13"
+    },
+    {
+        "id": 8,
+        "name": "test-product",
+        "description": "test-product",
+        "price": 100000,
+        "stock": 10,
+        "image": "test-product-url",
+        "code": 1655243763677,
+        "timestamp": "14/6/2022 18:56:03"
     }
-
 ]
