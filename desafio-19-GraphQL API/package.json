@@ -1,17 +1,49 @@
 {
-  "name": "desafio-19-graphql-api",
+  "name": "entrega-proyecto-n3",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/server.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/server.js",
+    "filedb": "node src/server.js --db filedb",
+    "test-filedb": "node src/test/index.manual.test.js --db filedb",
+    "test-mongo": "node src/test/index.manual.test.js",
+    "test": "mocha src/test/index.mocha.test.js",
+    "dev": "nodemon src/server.js --db filedb",
+    "dev-mongo": "nodemon src/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.1",
+    "axios": "^0.27.2",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.8",
+    "express": "^4.17.3",
     "express-graphql": "^0.12.0",
-    "graphql": "^15.8.0"
+    "express-session": "^1.17.3",
+    "graphql": "^15.8.0",
+    "intl-tel-input": "^17.0.16",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.6",
+    "multer": "^1.4.4",
+    "nodemailer": "^6.7.5",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0",
+    "twilio": "^3.77.0",
+    "winston": "^3.7.2",
+    "yargs": "^17.5.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.3"
   }
 }

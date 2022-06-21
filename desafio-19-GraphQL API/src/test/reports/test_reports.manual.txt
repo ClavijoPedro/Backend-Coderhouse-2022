@@ -1,0 +1,574 @@
+TEST FILEDB
+
+
+
+        ----------------------------------
+         Testeando Metodo POST Productos
+        ----------------------------------
+
+Client test response: 7
+Server test response: 8
+
+        ----------------------------------
+         Testeando Metodo GET Productos
+        ----------------------------------
+
+Client test Data: [
+  {
+    id: 1,
+    name: 'notebook',
+    description: 'notebook lenovo',
+    price: 100000,
+    stock: 10,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_909555-MLA47307187103_082021-O.webp',
+    code: '1652838326406'
+  },
+  {
+    id: 2,
+    name: 'monitor ',
+    description: 'monitor dell gamer 25"',
+    price: 140000,
+    stock: 5,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_712847-MLA41423072442_042020-O.webp',
+    code: '1652839068972'
+  },
+  {
+    id: 3,
+    name: 'parlantes',
+    description: 'parlantes gamer c/ luces ',
+    price: 4500,
+    stock: 30,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_649608-MLA48023343018_102021-O.webp',
+    code: '1652839157459'
+  },
+  {
+    id: 4,
+    name: 'teclado',
+    description: 'kti teclado para celular',
+    price: 6000,
+    stock: 15,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_742533-MLA49886379981_052022-O.webp',
+    code: '1652839304652'
+  },
+  {
+    id: 5,
+    name: 'mouse',
+    description: 'mouse redragon gamer',
+    price: 1900,
+    stock: 10,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_981372-MLA32147907497_092019-O.webp',
+    code: '1652839398628'
+  },
+  {
+    id: 6,
+    name: 'test-product',
+    description: 'test-product',
+    price: 100000,
+    stock: 10,
+    image: 'test-product-url',
+    code: 1655242393926
+  },
+  {
+    id: 7,
+    name: 'test-product',
+    description: 'test-product',
+    price: 100000,
+    stock: 10,
+    image: 'test-product-url',
+    code: 1655243763646
+  },
+  {
+    id: 8,
+    name: 'test-product',
+    description: 'test-product',
+    price: 100000,
+    stock: 10,
+    image: 'test-product-url',
+    code: 1655243763677
+  }
+]
+Server test Data: [
+  {
+    id: 1,
+    name: 'notebook',
+    description: 'notebook lenovo',
+    price: 100000,
+    stock: 10,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_909555-MLA47307187103_082021-O.webp',
+    code: '1652838326406'
+  },
+  {
+    id: 2,
+    name: 'monitor ',
+    description: 'monitor dell gamer 25"',
+    price: 140000,
+    stock: 5,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_712847-MLA41423072442_042020-O.webp',
+    code: '1652839068972'
+  },
+  {
+    id: 3,
+    name: 'parlantes',
+    description: 'parlantes gamer c/ luces ',
+    price: 4500,
+    stock: 30,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_649608-MLA48023343018_102021-O.webp',
+    code: '1652839157459'
+  },
+  {
+    id: 4,
+    name: 'teclado',
+    description: 'kti teclado para celular',
+    price: 6000,
+    stock: 15,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_742533-MLA49886379981_052022-O.webp',
+    code: '1652839304652'
+  },
+  {
+    id: 5,
+    name: 'mouse',
+    description: 'mouse redragon gamer',
+    price: 1900,
+    stock: 10,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_981372-MLA32147907497_092019-O.webp',
+    code: '1652839398628'
+  },
+  {
+    id: 6,
+    name: 'test-product',
+    description: 'test-product',
+    price: 100000,
+    stock: 10,
+    image: 'test-product-url',
+    code: 1655242393926,
+    timestamp: '14/6/2022 18:33:13'
+  },
+  {
+    id: 7,
+    name: 'test-product',
+    description: 'test-product',
+    price: 100000,
+    stock: 10,
+    image: 'test-product-url',
+    code: 1655243763646,
+    timestamp: '14/6/2022 18:56:03'
+  },
+  {
+    id: 8,
+    name: 'test-product',
+    description: 'test-product',
+    price: 100000,
+    stock: 10,
+    image: 'test-product-url',
+    code: 1655243763677,
+    timestamp: '14/6/2022 18:56:03'
+  }
+]
+
+        ----------------------------------
+         Testeando Metodo PUT Productos
+        ----------------------------------
+
+Client test response: { status: 'Producto Actualizado', id: '7' }
+Server test response: { status: 'Producto Actualizado', id: 7 }
+
+        ----------------------------------
+         Testeando Metodo DELETE Productos
+        ----------------------------------
+
+Client test response: { status: 'Producto eliminado', id: '7' }
+Server test response: { status: 'Producto eliminado', id: 9 }
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+
+TEST MONGODB
+
+        ----------------------------------
+         Testeando Metodo POST Productos
+        ----------------------------------
+
+[info] [2022-06-14T21:59:51.854Z] - item agregado id: 62a904d4875b5d9e0833610c
+Client test response: 62a904d4875b5d9e0833610c
+Server test response: 62a904d4875b5d9e0833610c
+
+        ----------------------------------
+         Testeando Metodo GET Productos
+        ----------------------------------
+
+Client test Data: [
+  {
+    id: '62844fb67f545af09b721030',
+    name: 'notebook',
+    description: 'notebook lenovo',
+    price: 100000,
+    stock: 10,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_909555-MLA47307187103_082021-O.webp',
+    code: '1652838326406'
+  },
+  {
+    id: '6284529c7f545af09b72103d',
+    name: 'monitor ',
+    description: 'monitor dell gamer 25"',
+    price: 140000,
+    stock: 5,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_712847-MLA41423072442_042020-O.webp',
+    code: '1652839068972'
+  },
+  {
+    id: '628452f57f545af09b72103f',
+    name: 'parlantes',
+    description: 'parlantes gamer c/ luces ',
+    price: 4500,
+    stock: 30,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_649608-MLA48023343018_102021-O.webp',
+    code: '1652839157459'
+  },
+  {
+    id: '628453887f545af09b721041',
+    name: 'teclado',
+    description: 'kti teclado para celular',
+    price: 6000,
+    stock: 15,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_742533-MLA49886379981_052022-O.webp',
+    code: '1652839304652'
+  },
+  {
+    id: '628453e67f545af09b721043',
+    name: 'mouse',
+    description: 'mouse redragon gamer',
+    price: 1900,
+    stock: 10,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_981372-MLA32147907497_092019-O.webp',
+    code: '1652839398628'
+  },
+  {
+    id: '62895912afb72b2933bbae0a',
+    name: 'monitor',
+    description: 'monitor gamer Asus',
+    price: 52000,
+    stock: 15,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_870757-MLA45212511343_032021-O.webp',
+    code: '1653168402768'
+  },
+  {
+    id: '6289597bafb72b2933bbae10',
+    name: 'teclado ',
+    description: 'teclado gammer led',
+    price: 3700,
+    stock: 10,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_810197-MLA42141410789_062020-O.webp',
+    code: '1653168507448'
+  },
+  {
+    id: '628959d0afb72b2933bbae16',
+    name: 'mouse Pad',
+    description: 'pad gammer hyprex',
+    price: 1500,
+    stock: 20,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_914544-MLA41164429753_032020-O.webp',
+    code: '1653168592725'
+  },
+  {
+    id: '62895a40afb72b2933bbae1c',
+    name: 'notebook ',
+    description: 'notebook Asus Ryzen',
+    price: 300000,
+    stock: 5,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_608059-MLA49829672553_052022-O.webp',
+    code: '1653168704101'
+  },
+  {
+    id: '62895a90afb72b2933bbae22',
+    name: 'mouse',
+    description: 'mouse gammer Logitech G',
+    price: 7000,
+    stock: 5,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_701613-MLA45464844877_042021-O.webp',
+    code: '1653168784097'
+  },
+  {
+    id: '62895c258e98b3d9e40c0275',
+    name: 'auriculares',
+    description: 'auriculares gammer',
+    price: 21000,
+    stock: 10,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_760857-MLA44771394445_022021-O.webp',
+    code: '1653169189202'
+  },
+  {
+    id: '62895c778e98b3d9e40c027b',
+    name: 'auriculares',
+    description: 'auriculares gammer Corsair',
+    price: 29000,
+    stock: 15,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_2X_817356-MLA41255110162_032020-F.webp',
+    code: '1653169271500'
+  },
+  {
+    id: '62895cd18e98b3d9e40c0281',
+    name: 'pc gammer',
+    description: 'pc gammer Amd Ryzen 7',
+    price: 123000,
+    stock: 5,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_669601-MLA49838914728_052022-O.webp',
+    code: '1653169361916'
+  },
+  {
+    id: '62895d208e98b3d9e40c0287',
+    name: 'pc gammer',
+    description: 'pc gammer Amd Ryzen 5',
+    price: 115000,
+    stock: 10,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_729057-MLA47295685520_082021-O.webp',
+    code: '1653169440956'
+  },
+  {
+    id: '628bc6d3f97240d41913f039',
+    name: 'parlantes',
+    description: 'parlantes genius Gx sw-g2.1',
+    price: 130000,
+    stock: 20,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_715213-MLA31026802368_062019-O.webp',
+    code: '1653327571656'
+  },
+  {
+    id: '62a904d4875b5d9e0833610c',
+    name: 'test-product',
+    description: 'test-product',
+    price: 100000,
+    stock: 10,
+    image: 'test-product-url',
+    code: '1655243988253'
+  }
+]
+Server test Data: [
+  {
+    _id: new ObjectId("62844fb67f545af09b721030"),
+    name: 'notebook',
+    description: 'notebook lenovo',
+    price: 100000,
+    stock: 10,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_909555-MLA47307187103_082021-O.webp',
+    code: '1652838326406',
+    createdAt: 2022-05-18T01:45:26.412Z,
+    updatedAt: 2022-05-18T01:45:26.412Z,
+    __v: 0,
+    qty: 0
+  },
+  {
+    _id: new ObjectId("6284529c7f545af09b72103d"),
+    name: 'monitor ',
+    description: 'monitor dell gamer 25"',
+    price: 140000,
+    stock: 5,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_712847-MLA41423072442_042020-O.webp',
+    code: '1652839068972',
+    createdAt: 2022-05-18T01:57:48.973Z,
+    updatedAt: 2022-05-18T01:57:48.973Z,
+    __v: 0,
+    qty: 0
+  },
+  {
+    _id: new ObjectId("628452f57f545af09b72103f"),
+    name: 'parlantes',
+    description: 'parlantes gamer c/ luces ',
+    price: 4500,
+    stock: 30,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_649608-MLA48023343018_102021-O.webp',
+    code: '1652839157459',
+    createdAt: 2022-05-18T01:59:17.460Z,
+    updatedAt: 2022-05-18T01:59:17.460Z,
+    __v: 0,
+    qty: 0
+  },
+  {
+    _id: new ObjectId("628453887f545af09b721041"),
+    name: 'teclado',
+    description: 'kti teclado para celular',
+    price: 6000,
+    stock: 15,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_742533-MLA49886379981_052022-O.webp',
+    code: '1652839304652',
+    createdAt: 2022-05-18T02:01:44.652Z,
+    updatedAt: 2022-05-18T02:01:44.652Z,
+    __v: 0,
+    qty: 0
+  },
+  {
+    _id: new ObjectId("628453e67f545af09b721043"),
+    name: 'mouse',
+    description: 'mouse redragon gamer',
+    price: 1900,
+    stock: 10,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_981372-MLA32147907497_092019-O.webp',
+    code: '1652839398628',
+    createdAt: 2022-05-18T02:03:18.630Z,
+    updatedAt: 2022-05-18T02:03:18.630Z,
+    __v: 0,
+    qty: 0
+  },
+  {
+    _id: new ObjectId("62895912afb72b2933bbae0a"),
+    name: 'monitor',
+    description: 'monitor gamer Asus',
+    price: 52000,
+    stock: 15,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_870757-MLA45212511343_032021-O.webp',
+    qty: 0,
+    code: '1653168402768',
+    createdAt: 2022-05-21T21:26:42.773Z,
+    updatedAt: 2022-05-21T21:26:42.773Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("6289597bafb72b2933bbae10"),
+    name: 'teclado ',
+    description: 'teclado gammer led',
+    price: 3700,
+    stock: 10,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_810197-MLA42141410789_062020-O.webp',
+    qty: 0,
+    code: '1653168507448',
+    createdAt: 2022-05-21T21:28:27.449Z,
+    updatedAt: 2022-05-21T21:28:27.449Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("628959d0afb72b2933bbae16"),
+    name: 'mouse Pad',
+    description: 'pad gammer hyprex',
+    price: 1500,
+    stock: 20,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_914544-MLA41164429753_032020-O.webp',
+    qty: 0,
+    code: '1653168592725',
+    createdAt: 2022-05-21T21:29:52.726Z,
+    updatedAt: 2022-05-21T21:29:52.726Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("62895a40afb72b2933bbae1c"),
+    name: 'notebook ',
+    description: 'notebook Asus Ryzen',
+    price: 300000,
+    stock: 5,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_608059-MLA49829672553_052022-O.webp',
+    qty: 0,
+    code: '1653168704101',
+    createdAt: 2022-05-21T21:31:44.102Z,
+    updatedAt: 2022-05-21T21:31:44.102Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("62895a90afb72b2933bbae22"),
+    name: 'mouse',
+    description: 'mouse gammer Logitech G',
+    price: 7000,
+    stock: 5,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_701613-MLA45464844877_042021-O.webp',
+    qty: 0,
+    code: '1653168784097',
+    createdAt: 2022-05-21T21:33:04.098Z,
+    updatedAt: 2022-05-21T21:33:04.098Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("62895c258e98b3d9e40c0275"),
+    name: 'auriculares',
+    description: 'auriculares gammer',
+    price: 21000,
+    stock: 10,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_760857-MLA44771394445_022021-O.webp',
+    qty: 0,
+    code: '1653169189202',
+    createdAt: 2022-05-21T21:39:49.209Z,
+    updatedAt: 2022-05-21T21:39:49.209Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("62895c778e98b3d9e40c027b"),
+    name: 'auriculares',
+    description: 'auriculares gammer Corsair',
+    price: 29000,
+    stock: 15,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_2X_817356-MLA41255110162_032020-F.webp',
+    qty: 0,
+    code: '1653169271500',
+    createdAt: 2022-05-21T21:41:11.501Z,
+    updatedAt: 2022-05-21T21:41:11.501Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("62895cd18e98b3d9e40c0281"),
+    name: 'pc gammer',
+    description: 'pc gammer Amd Ryzen 7',
+    price: 123000,
+    stock: 5,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_669601-MLA49838914728_052022-O.webp',
+    qty: 0,
+    code: '1653169361916',
+    createdAt: 2022-05-21T21:42:41.917Z,
+    updatedAt: 2022-05-21T21:42:41.917Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("62895d208e98b3d9e40c0287"),
+    name: 'pc gammer',
+    description: 'pc gammer Amd Ryzen 5',
+    price: 115000,
+    stock: 10,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_729057-MLA47295685520_082021-O.webp',
+    qty: 0,
+    code: '1653169440956',
+    createdAt: 2022-05-21T21:44:00.957Z,
+    updatedAt: 2022-05-21T21:44:00.957Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("628bc6d3f97240d41913f039"),
+    name: 'parlantes',
+    description: 'parlantes genius Gx sw-g2.1',
+    price: 130000,
+    stock: 20,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_715213-MLA31026802368_062019-O.webp',
+    qty: 1,
+    code: '1653327571656',
+    createdAt: 2022-05-23T17:39:31.657Z,
+    updatedAt: 2022-05-23T17:39:31.657Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("62a904d4875b5d9e0833610c"),
+    name: 'test-product',
+    description: 'test-product',
+    price: 100000,
+    stock: 10,
+    image: 'test-product-url',
+    qty: 1,
+    code: '1655243988253',
+    createdAt: 2022-06-14T21:59:48.259Z,
+    updatedAt: 2022-06-14T21:59:51.683Z,
+    __v: 0
+  }
+]
+
+        ----------------------------------
+         Testeando Metodo PUT Productos
+        ----------------------------------
+
+[info] [2022-06-14T21:59:52.763Z] - [object Object]
+Client test response: { status: 'Producto Actualizado', id: '62a904d4875b5d9e0833610c' }
+Server test response: { status: 'Producto Actualizado', id: '78a904d4875b5d9e0833613b' }
+
+        ----------------------------------
+         Testeando Metodo DELETE Productos
+        ----------------------------------
+
+[info] [2022-06-14T21:59:53.276Z] - [object Object]
+Client test response: { status: 'Producto eliminado', id: '62a904d4875b5d9e0833610c' }
+Server test response: { status: 'Producto Actualizado', id: '78a904d4875b5d9e0833613b'}
